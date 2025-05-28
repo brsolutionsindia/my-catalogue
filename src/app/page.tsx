@@ -1,8 +1,25 @@
+'use client'
+
+import { useEffect, useState } from "react";
+import { ref, onValue } from "firebase/database";
+import { db } from "../firebaseConfig";
+
 export default function Home() {
+  const [goldRate, setGoldRate] = useState("Loading...");
+
+  useEffect(() => {
+    const rateRef = ref(db, 'Global SKU/Rates/Gold 22kt');
+    onValue(rateRef, (snapshot) => {
+      const rate = snapshot.val();
+      setGoldRate(rate);
+    });
+  }, []);
+
   return (
     <main style={{ fontFamily: 'Georgia, serif', padding: '30px', backgroundColor: '#fdfaf6' }}>
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <img src="/logo.png" alt="Rawat Jewellers Logo" width="150" />
+import Image from 'next/image';
+	<Image src="/logo.png" alt="Rawat Jewellers Logo" width={150} height={100} />
         <h1 style={{ fontSize: '2.5rem', marginTop: '10px' }}>Rawat Gems & Jewellers</h1>
         <p style={{ fontSize: '1.2rem', color: '#555' }}>Legacy of Purity and Trust</p>
       </header>
@@ -17,9 +34,7 @@ export default function Home() {
       </section>
 
       <section style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <a href="https://drive.google.com/file/d/1h9TE6aPeUhVHd4BKRMov7qbIDC2bkx_C/view" target="_blank" style={{ margin: '10px', display: 'inline-block', padding: '10px 20px', backgroundColor: '#f4ce14', color: '#000', borderRadius: '5px', textDecoration: 'none' }}>
-          📈 Today's Rate
-        </a>
+        <p style={{ fontSize: '1.2rem' }}>💰 <strong>Todays Rate:</strong> {goldRate}</p>
         <a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank" style={{ margin: '10px', display: 'inline-block', padding: '10px 20px', backgroundColor: '#ffcc80', color: '#000', borderRadius: '5px', textDecoration: 'none' }}>
           🏦 Book 22kt Digital Gold
         </a>
@@ -41,8 +56,8 @@ export default function Home() {
       <section style={{ marginTop: '40px', textAlign: 'center' }}>
         <h2>🎥 Featured Videos</h2>
         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '20px', marginTop: '20px' }}>
-          <iframe width="360" height="215" src="https://www.youtube.com/watch?v=l9BPespAnZA" title="Craft your Dream Jewellery with our Expert Craftmen" frameBorder="0" allowFullScreen></iframe>
-          <iframe width="360" height="215" src="https://youtu.be/9c8AfNQazzg" title="Personalized Name Pendants" frameBorder="0" allowFullScreen></iframe>
+          <iframe width="360" height="215" src="https://www.youtube.com/embed/l9BPespAnZA" title="Craft your Dream Jewellery with our Expert Craftmen" frameBorder="0" allowFullScreen></iframe>
+          <iframe width="360" height="215" src="https://www.youtube.com/embed/9c8AfNQazzg" title="Personalized Name Pendants" frameBorder="0" allowFullScreen></iframe>
         </div>
       </section>
 
