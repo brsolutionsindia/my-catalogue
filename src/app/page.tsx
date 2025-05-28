@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { ref, onValue } from "firebase/database";
 import { db } from "../firebaseConfig";
-import Image from 'next/image';
 
 export default function Home() {
   const [goldRate, setGoldRate] = useState("Loading...");
@@ -19,7 +18,7 @@ export default function Home() {
   return (
     <main style={{ fontFamily: 'Georgia, serif', padding: '30px', backgroundColor: '#fdfaf6' }}>
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-	<Image src="/logo.png" alt="Rawat Jewellers Logo" width={150} height={100} />
+	<img src="/logo.png" alt="Rawat Jewellers Logo" width="150" height="100" />
         <h1 style={{ fontSize: '2.5rem', marginTop: '10px' }}>Rawat Gems & Jewellers</h1>
         <p style={{ fontSize: '1.2rem', color: '#555' }}>Legacy of Purity and Trust</p>
       </header>
