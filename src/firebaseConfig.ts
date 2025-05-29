@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBKTXRhXRJ7x2SATzVpHCH1w2irxoY1X6o",
+  apiKey: "AIzaSyAtccGh4XS6A6OtxtQx-sbEJ413mhWQw9s",
   authDomain: "cityjewellers-7daba.firebaseapp.com",
   databaseURL: "https://cityjewellers-7daba.firebaseio.com",
   projectId: "cityjewellers-7daba",
