@@ -112,7 +112,10 @@ export default function CatalogPage() {
                 className={styles.catalogImage}
               />
               <p className={styles.catalogPrice}>₹{item.price}</p>
-              <h3 className={styles.catalogCode}>Code: {item.id}</h3>
+              <h3 className={styles.catalogCode} style={{ color: '#111' }}>
+  Code: {item.id}
+</h3>
+
             </div>
           ))}
         </section>

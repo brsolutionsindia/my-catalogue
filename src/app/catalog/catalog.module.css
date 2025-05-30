@@ -56,22 +56,14 @@
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
-  .catalogMain {
-    background: #1e1e1e;
-    color: #f0f0f0;
-  }
-
-  .catalogCard {
-    background: #2a2a2a;
-    border-color: #444;
-    color: #f0f0f0;
-    width: 100%;
-    max-width: 300px;
-    margin: auto;
-  }
-
-  .catalogCode {
-    color: #ccc;
+  .catalogMain,
+  .catalogTitle,
+  .catalogCard,
+  .catalogPrice,
+  .catalogCode,
+  .filterBar {
+    color: #f0f0f0 !important;
+    background-color: #1e1e1e;
   }
 }
 
@@ -131,9 +123,13 @@
   height: auto;
 }
 
+.catalogMain,
+.catalogTitle,
+.catalogCard,
 .catalogPrice,
 .catalogCode,
-.catalogCard,
-.catalogTitle {
-  color: #111 !important; /* overrides dark mode, ensures visibility */
+.filterBar,
+.filterBar label,
+.filterBar select {
+  color: #111 !important;
 }
