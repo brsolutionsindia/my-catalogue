@@ -238,3 +238,7 @@
 .thumbnailWrapper:hover .playIcon {
   opacity: 0.5;
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -58,11 +58,17 @@ const productItems = [
     link: 'https://youtu.be/l9BPespAnZA?si=ngBlVQglC_T2d7V4',
     isExternal: true, // to open in new tab
   },
+  {
+    label: 'Personalized Silver Rakhi',
+    image: 'https://img.youtube.com/vi/F57sLhe0M0A/hqdefault.jpg', // YouTube thumbnail
+    link: 'https://www.youtube.com/shorts/F57sLhe0M0A',
+    isExternal: true, // to open in new tab
+  },
 ];
 
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} id="home">
       {/* Navigation */}
 <nav className={styles.navbar}>
   <div className={styles.hamburgerMenu}>
@@ -76,11 +82,11 @@ const productItems = [
     <div className={styles.logoText}>Rawat Gems & Jewellers</div>
   </div>
         <ul className={styles.navLinks}>
-          <li>Home</li>
-          <li>Catalogue</li>
-          <li>Testimonials</li>
-          <li>Contact</li>
-        </ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#catalogue">Catalogue</a></li>
+  <li><a href="#testimonials">Testimonials</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
       </nav>
 
       {/* Hero */}
@@ -98,7 +104,7 @@ const productItems = [
       <p className={styles.heroSubheading}>
         Discover Gold, Diamond and<br />Custom Jewellery
       </p>
-      <a href="/catalogue" className={styles.ctaBtn}>🛍️ View Catalogue</a>
+      <a href="/catalog" className={styles.ctaBtn}>🛍️ View Catalogue</a>
     </div>
   </div>
 </section>
@@ -130,7 +136,7 @@ const productItems = [
       </section>
 
 {/* Product Grid */}
-<section className={styles.productGrid}>
+<section className={styles.productGrid} id="catalogue">
   {productItems.map((item, index) => (
 <div key={index} className={styles.productCard}>
   <Link href={item.link} target="_blank">
@@ -155,22 +161,73 @@ const productItems = [
 
 
       {/* Testimonials */}
-      <section className={styles.testimonials}>
+      <section className={styles.testimonials} id="testimonials">
         <h2>What Our Customers Say</h2>
         <div className={styles.testimonialCards}>
-          <blockquote>“Absolutely loved the custom pendant!” - Priya S.</blockquote>
-          <blockquote>“Neelam gemstone was exactly as promised. Highly recommend.” - Rahul G.</blockquote>
+          <blockquote>“Excellent experience. Fast service. Mr Rawat is very very reliable and he helped me choosing the right gem with right size. Thank you so much Mr Rawat. Will surely bother you again.” - K. Aggarwal</blockquote>
+          <blockquote>“Awesome quality.. Rawat Jewellers customized the product beautifully even way better than the given design.. Thanks.. I had an excellent experience.. Highly recommended..” - S.Gill</blockquote>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className={styles.footer}>
-        <p>📍 Booth No 261, Sector 37-C, Chandigarh</p>
-        <p>📞 +91-90231-30944 | 🕒 11:00 AM – 8:00 PM (Sunday Closed)</p>
-      </footer>
+{/* Footer */}
+<footer className={styles.footer} id="contact">
+  <p>
+    📍 <a 
+         href="https://www.google.com/maps/place/Rawat+Jewellers/@30.7388481,76.7457771,17z/data=!3m1!4b1!4m6!3m5!1s0x390fedc27e94fddd:0x2c93c07989e4a14!8m2!3d30.7388435!4d76.748352!16s%2Fg%2F12q4vgb3d?entry=tts" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         style={{ color: 'inherit', textDecoration: 'underline' }}
+       >
+         Booth No 261, Sector 37-C, Chandigarh
+       </a>
+  </p>
+  
+  <p>
+    📞 <a 
+         href="https://wa.me/919023130944?text=Hello" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         style={{ color: 'inherit', textDecoration: 'underline' }}
+       >
+         +91-90231-30944
+       </a> 
+    &nbsp;| 🕒 11:00 AM – 8:00 PM (Sunday Closed)
+  </p>
+
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '1.5rem',
+    marginTop: '1rem'
+  }}>
+    <a 
+      href="https://www.google.com/maps/place/Rawat+Jewellers/@30.7388481,76.7457771,17z/data=!3m1!4b1!4m6!3m5!1s0x390fedc27e94fddd:0x2c93c07989e4a14!8m2!3d30.7388435!4d76.748352!16s%2Fg%2F12q4vgb3d?entry=tts" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      <img src="/gmaps-icon.png" alt="G-Maps" width="30" height="30" />
+    </a>
+    <a 
+      href="https://www.facebook.com/rawatgemsjewellers" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      <img src="/facebook-icon.png" alt="Facebook" width="30" height="30" />
+    </a>
+    <a 
+      href="https://www.instagram.com/rawatgemsjewellers/" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      <img src="/instagram-icon.png" alt="Instagram" width="30" height="30" />
+    </a>
+  </div>
+</footer>
+
+
 
       {/* WhatsApp Floating */}
-<a href="https://wa.me/919023130944" className={styles.whatsappBtn} target="_blank" rel="noopener noreferrer">
+<a href="https://wa.me/919023130944?text=Hello" className={styles.whatsappBtn} target="_blank" rel="noopener noreferrer">
 <Image
   src="/whatsapp-icon.png"
   alt="WhatsApp"
