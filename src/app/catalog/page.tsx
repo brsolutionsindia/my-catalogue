@@ -28,7 +28,7 @@ type SkuData = {
 
         if (skuData) {
           const allItems = Object.entries(skuData);
-          const filteredItems = allItems.filter(([key]) => {
+          const filteredItems: [string, SkuData][] = allItems.filter(([key]) => {
             if (!typeFilter) return true;
             return key.includes(typeFilter);
           });
