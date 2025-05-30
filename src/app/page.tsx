@@ -44,17 +44,19 @@ const productItems = [
   {
     label: 'Necklace Sets',
     image: '/necklace.png',
-    link: '/necklaces',
+    link: '/catalog?type=NK',
   },
   {
-    label: 'Custom Name Pendants',
-    image: '/pendants.png',
-    link: '/pendants',
+    label: 'Personalised Pendants',
+    image: 'https://img.youtube.com/vi/9c8AfNQazzg/hqdefault.jpg', // YouTube thumbnail
+    link: 'https://youtu.be/9c8AfNQazzg', // Link to video
+    isExternal: true, // to open in new tab
   },
   {
-    label: 'Daily Wear',
-    image: '/dailywear.png',
-    link: '/dailywear',
+    label: 'Customized Jewellery',
+    image: 'https://img.youtube.com/vi/l9BPespAnZA/hqdefault.jpg', // YouTube thumbnail
+    link: 'https://youtu.be/l9BPespAnZA?si=ngBlVQglC_T2d7V4',
+    isExternal: true, // to open in new tab
   },
 ];
 
@@ -103,7 +105,17 @@ const productItems = [
 
       {/* Offer Banner */}
       <section className={styles.offerBanner}>
-        22kt Gold Rate ({rateDate}): <strong>{goldRate}</strong> | 🏦 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank">Book 22kt Digital Gold</a>
+<p className={styles.offerBanner}>
+  22kt Gold Rate ({rateDate}): <strong>₹{goldRate}/10gm</strong> {' '}
+  <a
+    href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles.bookGoldBtn}
+  >
+    🏦Book 22kt Digital Gold
+  </a>
+</p>
       </section>
 
       {/* Product Filters */}
@@ -120,18 +132,23 @@ const productItems = [
 {/* Product Grid */}
 <section className={styles.productGrid}>
   {productItems.map((item, index) => (
-    <div key={index} className={styles.productCard}>
-      <Link href={item.link}>
-        <Image
-          src={item.image}
-          alt={item.label}
-          width={200}
-          height={200}
-          style={{ cursor: 'pointer' }}
-        />
-      </Link>
-      <h3>{item.label}</h3>
+<div key={index} className={styles.productCard}>
+  <Link href={item.link} target="_blank">
+    <div className={styles.thumbnailWrapper}>
+      <Image
+        src={item.image}
+        alt={item.label}
+        width={200}
+        height={200}
+        style={{ objectFit: 'cover', borderRadius: '10px' }}
+      />
+      {item.link.includes('youtu') && (
+        <span className={styles.playIcon}>▶️</span>
+      )}
     </div>
+  </Link>
+  <h3>{item.label}</h3>
+</div>
   ))}
 </section>
 

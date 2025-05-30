@@ -73,13 +73,13 @@
 }
 
 .heroHeading {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
 .heroSubheading {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin-bottom: 2rem;
 }
 
@@ -92,7 +92,7 @@
 .heroOverlay {
   position: absolute;
   top: 50%;
-  left: 30%;
+  left: 40%;
   transform: translate(-50%, -50%);
   z-index: 2;
   text-align: center;
@@ -137,6 +137,12 @@
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.productCard img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
 }
 
 .testimonials {
@@ -192,4 +198,43 @@
   .testimonialCards {
     font-size: 0.9rem;
   }
+}
+
+
+.bookGoldBtn {
+  background-color: #cc8c23;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.bookGoldBtn:hover {
+  background-color: #a66f1c;
+}
+
+.thumbnailWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.playIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.thumbnailWrapper:hover .playIcon {
+  opacity: 0.5;
 }

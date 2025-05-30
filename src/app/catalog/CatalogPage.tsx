@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { db } from '../../firebaseConfig';
 import Image from 'next/image';
-import styles from '../page.module.css';
+import styles from './catalog.module.css'; // instead of ../page.module.css
 import { useSearchParams } from 'next/navigation';
 
 export default function CatalogPage() {
@@ -52,21 +52,21 @@ export default function CatalogPage() {
   }, [typeFilter]);
 
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1>Our Collection</h1>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <section className={styles.productGrid}>
-          {products.map((item) => (
-            <div key={item.id} className={styles.productCard}>
-              <Image src={item.image} alt={item.id} width={200} height={200} />
-              <p style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>₹{item.price}</p>
-	      <h3 style={{ fontStyle: 'italic' }}>Code: {item.id}</h3>
-            </div>
-          ))}
-        </section>
-      )}
-    </main>
+<main className={styles.catalogMain}>
+  <h1 className={styles.catalogTitle}>Our Collection</h1>
+  {loading ? (
+    <p>Loading...</p>
+  ) : (
+    <section className={styles.catalogGrid}>
+      {products.map((item) => (
+        <div key={item.id} className={styles.catalogCard}>
+          <Image src={item.image} alt={item.id} width={200} height={200} className={styles.catalogImage} />
+          <p className={styles.catalogPrice}>₹{item.price}</p>
+          <h3 className={styles.catalogCode}>Code: {item.id}</h3>
+        </div>
+      ))}
+    </section>
+  )}
+</main>
   );
 }
