@@ -67,7 +67,7 @@
 }
 
 .heroText {
-  color: white;
+  color: white !important;
   text-align: center;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
@@ -76,11 +76,13 @@
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: white !important;
 }
 
 .heroSubheading {
   font-size: 2.0rem;
   margin-bottom: 2rem;
+  color: white !important;
 }
 
 .heroImage {
