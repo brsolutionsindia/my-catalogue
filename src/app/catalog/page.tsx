@@ -27,7 +27,7 @@ type SkuData = {
         const imgData = imgSnap.val();
 
         if (skuData) {
-          const allItems = Object.entries(skuData);
+          const allItems = Object.entries(skuData as Record<string, SkuData>);
           const filteredItems: [string, SkuData][] = allItems.filter(([key]) => {
             if (!typeFilter) return true;
             return key.includes(typeFilter);
