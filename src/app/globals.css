@@ -29,3 +29,41 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+/* Ensure all main text remains visible across devices */
+.main,
+.navbar,
+.heroText,
+.heroHeading,
+.heroSubheading,
+.offerBanner,
+.testimonials,
+.footer,
+.testimonialCards,
+.navLinks li,
+.bookGoldBtn {
+  color: #111 !important; /* Enforce readable dark text */
+}
+
+/* Optional: reinforce link visibility */
+a {
+  color: #0c0c0c;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .main,
+  .heroText,
+  .footer,
+  .testimonialCards,
+  .navLinks li {
+    color: #f0f0f0 !important;
+  }
+
+  .navbar,
+  .productCard,
+  .testimonials {
+    background-color: #1e1e1e;
+  }
+}
