@@ -23,7 +23,7 @@ type SkuData = {
     onValue(skuRef, (skuSnap) => {
       const skuData = skuSnap.val();
 
-      onValue(imgRef, (imgSnap) => {
+      onValue(imgRef, async (imgSnap) => {
         const imgData = imgSnap.val();
 
         if (skuData) {
@@ -33,15 +33,16 @@ type SkuData = {
             return key.includes(typeFilter);
           });
 
-          const items = filteredItems.map(async ([key, value]: [string, SkuData]) => {
-            const imageUrl = imgData?.[key]?.Primary || '/product-placeholder.jpg';
-            return {
-              id: key,
-              price: value?.grTotalPrice || 'N/A',
-              image: imageUrl,
-            };
-          });
-
+const items = await Promise.all(
+  filteredItems.map(async ([key, value]: [string, SkuData]) => {
+    const imageUrl = imgData?.[key]?.Primary || '/product-placeholder.jpg';
+    return {
+      id: key,
+      price: value?.grTotalPrice || 'N/A',
+      image: imageUrl,
+    };
+  })
+);
           setProducts(items);
         }
 

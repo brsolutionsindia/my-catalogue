@@ -125,7 +125,7 @@ const productItems = [
 
       {/* Testimonials */}
       <section className={styles.testimonials}>
-        <h2>❤️ What Our Customers Say</h2>
+        <h2>What Our Customers Say</h2>
         <div className={styles.testimonialCards}>
           <blockquote>“Absolutely loved the custom pendant!” - Priya S.</blockquote>
           <blockquote>“Neelam gemstone was exactly as promised. Highly recommend.” - Rahul G.</blockquote>
