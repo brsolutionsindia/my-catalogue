@@ -82,3 +82,26 @@
     font-size: 0.95rem;
   }
 }
+
+
+.filterBar {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fafafa;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-family: 'Georgia', serif;
+}
+
+.filterBar label {
+  font-weight: bold;
+}
+
+.filterBar select {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
