@@ -8,7 +8,10 @@ import styles from '../page.module.css';
 import { useSearchParams } from 'next/navigation';
 
 export default function CatalogPage() {
-  const [products, setProducts] = useState<any[]>([]);
+type SkuData = {
+  grTotalPrice?: number;
+};
+  const [products, setProducts] = useState<{ id: string; price: number | string; image: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
   const typeFilter = searchParams.get('type');
@@ -30,7 +33,7 @@ export default function CatalogPage() {
             return key.includes(typeFilter);
           });
 
-          const items = filteredItems.map(([key, value]: any) => {
+          const items = filteredItems.map(async ([key, value]: [string, SkuData]) => {
             const imageUrl = imgData?.[key]?.Primary || '/product-placeholder.jpg';
             return {
               id: key,

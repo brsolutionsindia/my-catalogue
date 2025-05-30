@@ -62,7 +62,7 @@ const productItems = [
   </div>
 
   <div className={styles.branding}>
-    <img src="/logo.png" alt="Logo" className={styles.logoImg} />
+    <Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} />
     <div className={styles.logoText}>Rawat Gems & Jewellers</div>
   </div>
         <ul className={styles.navLinks}>
@@ -75,11 +75,13 @@ const productItems = [
 
       {/* Hero */}
 <section className={styles.hero}>
-  <img
-    src="/hero-banner.png"
-    alt="Jewellery Banner"
-    className={styles.heroImage}
-  />
+  <Image
+  src="/hero-banner.png"
+  alt="Jewellery Banner"
+  width={1200}
+  height={400}
+  className={styles.heroImage}
+/>
   <div className={styles.heroOverlay}>
     <a href="/catalogue" className={styles.ctaBtn}>🛍️ View Catalogue</a>
   </div>
@@ -138,7 +140,13 @@ const productItems = [
 
       {/* WhatsApp Floating */}
 <a href="https://wa.me/919023130944" className={styles.whatsappBtn} target="_blank" rel="noopener noreferrer">
-  <img src="/whatsapp-icon.png" alt="WhatsApp" style={{ width: '100px', height: '60px'}} />
+<Image
+  src="/whatsapp-icon.png"
+  alt="WhatsApp"
+  width={100}
+  height={60}
+  style={{ objectFit: 'contain' }}
+/>
 </a>
 </main>
   );
