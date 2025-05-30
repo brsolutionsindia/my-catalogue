@@ -239,6 +239,9 @@
   opacity: 0.5;
 }
 
-html {
-  scroll-behavior: smooth;
+.googleReview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }

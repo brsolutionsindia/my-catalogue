@@ -7,7 +7,7 @@ import { ref, onValue } from 'firebase/database';
 import { db } from '../firebaseConfig';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import './globals.css';
 
 export default function Home() {
   const [goldRate, setGoldRate] = useState("Loading...");
@@ -161,13 +161,38 @@ const productItems = [
 
 
       {/* Testimonials */}
-      <section className={styles.testimonials} id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div className={styles.testimonialCards}>
-          <blockquote>“Excellent experience. Fast service. Mr Rawat is very very reliable and he helped me choosing the right gem with right size. Thank you so much Mr Rawat. Will surely bother you again.” - K. Aggarwal</blockquote>
-          <blockquote>“Awesome quality.. Rawat Jewellers customized the product beautifully even way better than the given design.. Thanks.. I had an excellent experience.. Highly recommended..” - S.Gill</blockquote>
-        </div>
-      </section>
+<section className={styles.testimonials} id="testimonials">
+  <h2>What Our Customers Say</h2>
+
+  <div className={styles.googleReview}>
+    <img src="/googlereviews-icon.png" alt="Google Reviews" width={28} height={28} />
+    <span style={{ marginLeft: '8px' }}>
+      <strong>4.7/5</strong> based on customer reviews
+    </span>
+    <a
+      href="https://g.page/r/CRRKnpgHPMkCEB0/review"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        marginLeft: '12px',
+        backgroundColor: '#4285F4',
+        color: 'white',
+        padding: '6px 12px',
+        borderRadius: '6px',
+        fontSize: '0.9rem',
+        textDecoration: 'none'
+      }}
+    >
+      Read & Rate Us ⭐
+    </a>
+  </div>
+
+  <div className={styles.testimonialCards}>
+    <blockquote>“Excellent experience. Fast service. Mr Rawat is very very reliable and he helped me choosing the right gem with right size. Thank you so much Mr Rawat. Will surely bother you again.” - K. Aggarwal</blockquote>
+    <blockquote>“Awesome quality.. Rawat Jewellers customized the product beautifully even way better than the given design.. Thanks.. I had an excellent experience.. Highly recommended..” - S.Gill</blockquote>
+  </div>
+</section>
+
 
 {/* Footer */}
 <footer className={styles.footer} id="contact">
