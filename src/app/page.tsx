@@ -1,8 +1,13 @@
-'use client'
 
-import { useEffect, useState } from "react";
-import { ref, onValue } from "firebase/database";
-import { db } from "../firebaseConfig";
+'use client';
+
+import styles from './page.module.css';
+import { useEffect, useState } from 'react';
+import { ref, onValue } from 'firebase/database';
+import { db } from '../firebaseConfig';
+import Link from 'next/link';
+import Image from 'next/image';
+
 
 export default function Home() {
   const [goldRate, setGoldRate] = useState("Loading...");
@@ -15,86 +20,126 @@ export default function Home() {
     });
   }, []);
 
+
+{/* Product Grid */}
+const productItems = [
+  {
+    label: 'Earrings',
+    image: '/earrings.png',
+    link: '/catalog?type=ER',
+  },
+  {
+    label: 'Rings',
+    image: '/rings.png',
+    link: '/catalog?type=RG',
+  },
+  {
+    label: 'Necklace Sets',
+    image: '/necklace.png',
+    link: '/necklaces',
+  },
+  {
+    label: 'Custom Name Pendants',
+    image: '/pendants.png',
+    link: '/pendants',
+  },
+  {
+    label: 'Daily Wear',
+    image: '/dailywear.png',
+    link: '/dailywear',
+  },
+];
+
+
   return (
+    <main className={styles.main}>
+      {/* Navigation */}
+<nav className={styles.navbar}>
+  <div className={styles.hamburgerMenu}>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-<main style={{ fontFamily: 'Georgia, serif', backgroundColor: '#fdfaf6' }}>
-  {/* Hero Banner */}
-  <section
-    style={{
-      position: 'relative',
-      height: '70vh',
-      background: `url('/hero-banner.png') 0 0 / 100% 100% no-repeat`,
-    }}
-  >
-    <div
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0,0,0,0.3)',
-      }}
-    />
+  <div className={styles.branding}>
+    <img src="/logo.png" alt="Logo" className={styles.logoImg} />
+    <div className={styles.logoText}>Rawat Gems & Jewellers</div>
+  </div>
+        <ul className={styles.navLinks}>
+          <li>Home</li>
+          <li>Catalogue</li>
+          <li>Testimonials</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
 
-        <div style={{ position: 'relative', zIndex: 1, color: '#fff', textAlign: 'left', top: '75%', transform: 'translateY(-50%)' }}>
-          <a href="/catalogue" style={{ marginTop: '20px', marginLeft: '90px', padding: '18px 80px', fontSize: '2.0rem', backgroundColor: '#cc8c23', color: '##fffdff', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)', display: 'inline-block', textDecoration: 'none' }}>SHOP NOW</a>
-        </div>
+      {/* Hero */}
+<section className={styles.hero}>
+  <img
+    src="/hero-banner.png"
+    alt="Jewellery Banner"
+    className={styles.heroImage}
+  />
+  <div className={styles.heroOverlay}>
+    <a href="/catalogue" className={styles.ctaBtn}>🛍️ View Catalogue</a>
+  </div>
+</section>
+
+      {/* Offer Banner */}
+      <section className={styles.offerBanner}>
+        💰 Today's Rate: <strong>{goldRate}</strong> | 🏦 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank">Book 22kt Digital Gold</a>
       </section>
 
-      {/* Gold Rate Bar */}
-      <div style={{ position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#fff8e1', borderTop: '1px solid #ccc', padding: '8px 0', textAlign: 'center', fontWeight: 'bold', zIndex: 999 }}>
-        💰 Today’s 22kt Gold Rate: {goldRate} /gm
-      </div>
-
-      {/* Collections Grid */}
-      <section style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '20px', margin: '40px auto', maxWidth: '1200px', textAlign: 'center' }}>
-        {[{ title: 'Bridal Sets', image: '/bridal.jpg' }, { title: 'Gemstones', image: '/gemstone.jpg' }, { title: 'Daily Wear', image: '/daily.jpg' }, { title: 'Name Pendants', image: '/name.jpg' }].map((item, index) => (
-          <div key={index} style={{ width: '240px' }}>
-            <img src={item.image} alt={item.title} style={{ width: '100%', borderRadius: '10px' }} />
-            <p style={{ marginTop: '10px', fontWeight: 'bold' }}>{item.title}</p>
-          </div>
-        ))}
+      {/* Product Filters */}
+      <section className={styles.filterBar}>
+        <label>Filter by: </label>
+        <select>
+          <option>All</option>
+          <option>Gold</option>
+          <option>Gemstones</option>
+          <option>Bridal</option>
+        </select>
       </section>
 
-      {/* Videos */}
-      <section style={{ marginTop: '40px', textAlign: 'center' }}>
-        <h2>🎥 Featured Videos</h2>
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '20px', marginTop: '20px' }}>
-          <iframe width="360" height="215" src="https://www.youtube.com/embed/l9BPespAnZA" title="Craft your Dream Jewellery with our Expert Craftmen" frameBorder="0" allowFullScreen></iframe>
-          <iframe width="360" height="215" src="https://www.youtube.com/embed/9c8AfNQazzg" title="Personalized Name Pendants" frameBorder="0" allowFullScreen></iframe>
+{/* Product Grid */}
+<section className={styles.productGrid}>
+  {productItems.map((item, index) => (
+    <div key={index} className={styles.productCard}>
+      <Link href={item.link}>
+        <Image
+          src={item.image}
+          alt={item.label}
+          width={200}
+          height={200}
+          style={{ cursor: 'pointer' }}
+        />
+      </Link>
+      <h3>{item.label}</h3>
+    </div>
+  ))}
+</section>
+
+
+
+      {/* Testimonials */}
+      <section className={styles.testimonials}>
+        <h2>❤️ What Our Customers Say</h2>
+        <div className={styles.testimonialCards}>
+          <blockquote>“Absolutely loved the custom pendant!” - Priya S.</blockquote>
+          <blockquote>“Neelam gemstone was exactly as promised. Highly recommend.” - Rahul G.</blockquote>
         </div>
       </section>
 
       {/* Footer */}
-      <footer style={{ textAlign: 'center', marginTop: '60px', paddingBottom: '80px', color: '#666' }}>
+      <footer className={styles.footer}>
         <p>📍 Booth No 261, Sector 37-C, Chandigarh</p>
-        <p>📞 +91-90231-30944</p>
-        <p>🕒 Open 10:30 AM – 7:30 PM (Tuesday Closed)</p>
+        <p>📞 +91-90231-30944 | 🕒 11:00 AM – 8:00 PM (Sunday Closed)</p>
       </footer>
 
-      {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/919023130944"
-        target="_blank"
-        style={{
-          position: 'fixed',
-          bottom: '90px',
-          right: '20px',
-          backgroundColor: '#25d366',
-          color: 'white',
-          borderRadius: '50%',
-          width: '60px',
-          height: '60px',
-          textAlign: 'center',
-          fontSize: '30px',
-          lineHeight: '60px',
-          boxShadow: '0 2px 5px rgba(0,0,0,0.3)',
-          textDecoration: 'none',
-          zIndex: 1000
-        }}>
-        💬
-      </a>
-    </main>
+      {/* WhatsApp Floating */}
+<a href="https://wa.me/919023130944" className={styles.whatsappBtn} target="_blank" rel="noopener noreferrer">
+  <img src="/whatsapp-icon.png" alt="WhatsApp" style={{ width: '100px', height: '60px'}} />
+</a>
+</main>
   );
 }
