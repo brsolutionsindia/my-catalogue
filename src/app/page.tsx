@@ -89,7 +89,7 @@ const productItems = [
 
       {/* Offer Banner */}
       <section className={styles.offerBanner}>
-        💰 Todays Rate: <strong>{goldRate}</strong> | 🏦 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank">Book 22kt Digital Gold</a>
+        Todays Rate: <strong>{goldRate}</strong> | 🏦 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank">Book 22kt Digital Gold</a>
       </section>
 
       {/* Product Filters */}
