@@ -11,13 +11,21 @@ import Image from 'next/image';
 
 export default function Home() {
   const [goldRate, setGoldRate] = useState("Loading...");
+  const [rateDate, setRateDate] = useState("");
 
   useEffect(() => {
     const rateRef = ref(db, 'Global SKU/Rates/Gold 22kt');
+    const dateRef = ref(db, 'Global SKU/Rates/Date');
+
     onValue(rateRef, (snapshot) => {
       const rate = snapshot.val();
       setGoldRate(rate);
     });
+
+    onValue(dateRef, (snapshot) => {
+      const date = snapshot.val();
+      setRateDate(date);
+  });
   }, []);
 
 
@@ -83,13 +91,19 @@ const productItems = [
   className={styles.heroImage}
 />
   <div className={styles.heroOverlay}>
-    <a href="/catalogue" className={styles.ctaBtn}>🛍️ View Catalogue</a>
+<div className={styles.heroText}>
+      <h1 className={styles.heroHeading}>UNWRAP ELEGANCE</h1>
+      <p className={styles.heroSubheading}>
+        Discover Gold, Diamond and<br />Custom Jewellery
+      </p>
+      <a href="/catalogue" className={styles.ctaBtn}>🛍️ View Catalogue</a>
+    </div>
   </div>
 </section>
 
       {/* Offer Banner */}
       <section className={styles.offerBanner}>
-        Todays Rate: <strong>{goldRate}</strong> | 🏦 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank">Book 22kt Digital Gold</a>
+        22kt Gold Rate ({rateDate}): <strong>{goldRate}</strong> | 🏦 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank">Book 22kt Digital Gold</a>
       </section>
 
       {/* Product Filters */}

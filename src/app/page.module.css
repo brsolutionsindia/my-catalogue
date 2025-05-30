@@ -66,20 +66,37 @@
   overflow: hidden;
 }
 
+.heroText {
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.heroHeading {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.heroSubheading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
 .heroImage {
   width: 100%;
-  height: auto; /* Changed from 100% to auto for better aspect ratio */
-  object-fit: cover; /* Changed from fill to cover to avoid distortion */
+  height: auto;
+  object-fit: cover;
 }
 
 .heroOverlay {
   position: absolute;
-  top: 76%;
-  left: 16%;
+  top: 50%;
+  left: 30%;
   transform: translate(-50%, -50%);
   z-index: 2;
   text-align: center;
-  width: 90%;
+  width: 100%;
 }
 
 .ctaBtn {
@@ -90,9 +107,7 @@
   text-decoration: none;
   font-size: 1.5rem;
   display: inline-block;
-  max-width: 100%;
 }
-
 
 .offerBanner {
   background: #fff3cd;
