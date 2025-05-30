@@ -68,25 +68,31 @@
 
 .heroImage {
   width: 100%;
-  height: 100%;
-  object-fit: fill;
+  height: auto; /* Changed from 100% to auto for better aspect ratio */
+  object-fit: cover; /* Changed from fill to cover to avoid distortion */
 }
 
 .heroOverlay {
   position: absolute;
-  top: 72%;
-  left: 6%;
-  z-index: 1;
+  top: 76%;
+  left: 16%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 90%;
 }
 
 .ctaBtn {
   background-color: #cc8c23;
   color: #fff;
-  padding: 35px 24px;
-  border-radius: 15px;
+  padding: 16px 24px;
+  border-radius: 12px;
   text-decoration: none;
-  font-size: 2.1rem;
+  font-size: 1.5rem;
+  display: inline-block;
+  max-width: 100%;
 }
+
 
 .offerBanner {
   background: #fff3cd;
