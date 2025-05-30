@@ -85,6 +85,10 @@ a {
 
 /* 9. Optional: ensure light mode appearance */
 @media (prefers-color-scheme: dark) {
+:root {
+    --background: #ffffff;
+    --foreground: #111111;
+  }
   body {
     color-scheme: light;
   }
