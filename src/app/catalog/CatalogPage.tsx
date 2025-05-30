@@ -61,8 +61,8 @@ export default function CatalogPage() {
           {products.map((item) => (
             <div key={item.id} className={styles.productCard}>
               <Image src={item.image} alt={item.id} width={200} height={200} />
-              <h3>{item.id}</h3>
-              <p>Price: ₹{item.price}</p>
+              <p style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>₹{item.price}</p>
+	      <h3 style={{ fontStyle: 'italic' }}>Code: {item.id}</h3>
             </div>
           ))}
         </section>
