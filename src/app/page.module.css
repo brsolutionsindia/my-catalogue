@@ -202,6 +202,11 @@
   }
 }
 
+.goldRateText {
+  font-size: 2.5rem; /* or try 1.75rem for even bigger */
+  font-weight: bold;
+  color: #000;
+}
 
 .bookGoldBtn {
   background-color: #cc8c23;
@@ -262,3 +267,154 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+
+.videoSection {
+  background-color: #fff8e7;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 3px solid #cc8c23;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+
+.catalogSection {
+  padding: 2rem;
+}
+
+.catalogContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.catalogBanner {
+  flex: 1 1 40%;
+  min-width: 300px;
+}
+
+.bannerImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.catalogSlider {
+  flex: 1 1 55%;
+  min-width: 300px;
+}
+
+.catalogTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center; /* 👈 Add this */
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.catalogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 1rem 1.5rem 1rem 1.5rem; /* adds left (and horizontal) padding */
+}
+
+
+
+.catalogCard {
+  min-width: 200px;             /* Fix width for horizontal scroll */
+  scroll-snap-align: start;
+}
+
+.horizontalScroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.productCardHorizontal {
+  min-width: 160px;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+.productImg {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.productLabel {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.catalogPrice {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0.5rem 0;
+}
+
+.catalogCode {
+  font-style: italic;
+  color: #555;
+}
+
+.catalogMain {
+  font-family: 'Georgia', serif;
+  background: #fdfaf6;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.catalogTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.catalogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.catalogCard {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+  color: #333;
+}
+
+.catalogCard:hover {
+  transform: translateY(-5px);
+}
+
+.catalogImage {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
