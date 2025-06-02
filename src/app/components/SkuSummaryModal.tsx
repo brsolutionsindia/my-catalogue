@@ -3,7 +3,12 @@ import Image from 'next/image';
 import { ref, get } from 'firebase/database';
 import { db } from '../../firebaseConfig';
 
-const SkuSummaryModal = ({ skuId, onClose }) => {
+type Props = {
+  skuId: string;
+  onClose: () => void;
+};
+
+const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
   const [skuData, setSkuData] = useState(null);
   const [imageUrl, setImageUrl] = useState('/product-placeholder.jpg');
 
