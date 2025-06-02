@@ -44,25 +44,20 @@ const SkuSummaryModal = ({ skuId, onClose }) => {
         <button className="absolute top-2 right-4 text-gray-600" onClick={onClose}>✕</button>
         <h2 className="text-xl font-bold mb-4">{skuId}</h2>
 
-        <div className="mb-4">
-          <Image
-            src={imageUrl}
-            alt="SKU"
-            width={300}
-            height={300}
-            className="rounded border"
-          />
-        </div>
+  <div className="mb-4 text-center">
+    <Image
+      src={imageUrl}
+      alt="SKU"
+      width={300}
+      height={300}
+      className="rounded border inline-block"
+    />
+  </div>
 
         <div className="space-y-2 text-sm">
-          <div><strong>Gold Purity:</strong> {skuData.goldPurety}{skuData.goldPuretyUnit}</div>
           <div><strong>Gross Wt:</strong> {skuData.gross} gm</div>
-          <div><strong>Net Wt:</strong> {skuData.net} gm</div>
-          <div><strong>Labour:</strong> {skuData.labour} {skuData.labourUnit}</div>
-          <div><strong>Polish:</strong> {skuData.polish} {skuData.polishUnit}</div>
-          <div><strong>Misc:</strong> ₹{skuData.misc}</div>
-          <div><strong>Total Price:</strong> ₹{skuData.grTotalPrice}</div>
-          <div><strong>GST:</strong> {skuData.gst}%</div>
+          <div><strong>Net Wt:</strong> {skuData.net} gm ({skuData.goldPurety}kt)</div>
+          <div><strong>Gross Price:</strong> ₹{skuData.grTotalPrice}</div>
         </div>
       </div>
     </div>

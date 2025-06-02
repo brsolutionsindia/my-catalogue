@@ -1,6 +1,5 @@
 .main {
   font-family: 'Georgia', serif;
-  background: #fdfaf6;
   padding-bottom: 60px;
 }
 
@@ -9,7 +8,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
-  background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -112,8 +110,6 @@
 }
 
 .offerBanner {
-  background: #fff3cd;
-  padding: 1rem;
   text-align: center;
   font-weight: bold;
 }
@@ -134,7 +130,6 @@
 }
 
 .productCard {
-  background: white;
   padding: 1rem;
   text-align: center;
   border-radius: 10px;
@@ -203,7 +198,7 @@
 }
 
 .goldRateText {
-  font-size: 2.5rem; /* or try 1.75rem for even bigger */
+  font-size: 1.5rem; /* or try 1.75rem for even bigger */
   font-weight: bold;
   color: #000;
 }
@@ -272,7 +267,6 @@
   background-color: #fff8e7;
   padding: 2rem 1rem;
   margin-top: 2rem;
-  border-top: 3px solid #cc8c23;
 }
 
 .videoGrid {
@@ -342,7 +336,6 @@
 
 .productCardHorizontal {
   min-width: 160px;
-  background: #fff;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);

@@ -8,6 +8,7 @@ import styles from '../page.module.css';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SkuSummaryModal from '../components/SkuSummaryModal';
+import { useRouter } from 'next/navigation';
 
 export default function CatalogPage() {
   type SkuData = {
@@ -30,6 +31,12 @@ export default function CatalogPage() {
   const [rateDate, setRateDate] = useState("");
 
   const [selectedSku, setSelectedSku] = useState<string | null>(null);
+
+  const router = useRouter();
+
+  const navigateTo = (sectionId: string) => {
+    router.push(`/#${sectionId}`);
+  };
 
   useEffect(() => {
     const skuRef = ref(db, 'Global SKU/SKU/');
@@ -76,32 +83,25 @@ export default function CatalogPage() {
   }, [typeFilter, sortOrder]);
 
   return (
-    <main className={styles.main}>
-      <nav className={styles.navbar}>
+     <main className={styles.main} id="home" style={{ backgroundColor: '#fff', padding: '1rem' }}>
+      {/* Navigation */}
+      <nav className={styles.navbar} style={{ borderRadius: '12px', padding: '1rem', backgroundColor: '#f9f9f9' }}>
         <div className={styles.hamburgerMenu}><span></span><span></span><span></span></div>
-        <div className={styles.branding}>
-          <Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} />
-          <div className={styles.logoText}>Rawat Gems & Jewellers</div>
-        </div>
+        <div className={styles.branding}><Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} /></div>
         <ul className={styles.navLinks}>
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/#catalogue">Catalogue</Link></li>
-          <li><Link href="/#testimonials">Testimonials</Link></li>
-          <li><Link href="/#contact">Contact</Link></li>
+          <li><button onClick={() => navigateTo('home')}>Home</button></li>
+          <li><button onClick={() => navigateTo('catalogue')}>Catalogue</button></li>
+          <li><button onClick={() => navigateTo('testimonials')}>Testimonials</button></li>
+          <li><button onClick={() => navigateTo('contact')}>Contact</button></li>
         </ul>
       </nav>
 
-      <section className={styles.offerBanner}>
-        <p>
-          22kt Gold Rate ({rateDate}): <span className={styles.goldRateText}>₹{goldRate}</span>/10gm{' '}
-          <a
-            href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.bookGoldBtn}
-          >🏦Book 22kt Digital Gold</a>
-        </p>
+
+      {/* Offer Banner */}
+      <section className={styles.offerBanner} style={{ borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#f3f3f3' }}>
+        <p className={styles.offerBanner}>22kt Gold Rate ({rateDate}): <span className={styles.goldRateText}>₹{goldRate}</span>/10gm{' '}<a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank" rel="noopener noreferrer" className={styles.bookGoldBtn}>🏦Book 22kt Digital Gold</a></p>
       </section>
+
 
       <h1 className={styles.catalogTitle}>{heading}</h1>
       <section className={styles.filterBar}>
