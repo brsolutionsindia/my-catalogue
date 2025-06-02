@@ -8,8 +8,15 @@ type Props = {
   onClose: () => void;
 };
 
+type SkuData = {
+  gross: number;
+  net: number;
+  goldPurety: number;
+  grTotalPrice: number;
+};
+
 const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
-  const [skuData, setSkuData] = useState(null);
+  const [skuData, setSkuData] = useState<SkuData | null>(null);
   const [imageUrl, setImageUrl] = useState('/product-placeholder.jpg');
 
   useEffect(() => {
