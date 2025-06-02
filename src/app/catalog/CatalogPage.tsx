@@ -7,6 +7,7 @@ import Image from 'next/image';
 import styles from '../page.module.css';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import SkuSummaryModal from '../components/SkuSummaryModal';
 
 export default function CatalogPage() {
   type SkuData = {
@@ -27,6 +28,8 @@ export default function CatalogPage() {
 
   const [goldRate, setGoldRate] = useState("Loading...");
   const [rateDate, setRateDate] = useState("");
+
+  const [selectedSku, setSelectedSku] = useState<string | null>(null);
 
   useEffect(() => {
     const skuRef = ref(db, 'Global SKU/SKU/');
@@ -126,7 +129,7 @@ export default function CatalogPage() {
       ) : (
         <section className={styles.catalogGrid}>
           {products.map((item) => (
-            <div key={item.id} className={styles.catalogCard}>
+            <div key={item.id} className={styles.catalogCard} onClick={() => setSelectedSku(item.id)}>
               <Image src={item.image} alt={item.id} width={200} height={200} className={styles.catalogImage} />
               <p className={styles.catalogPrice}>₹{typeof item.price === 'number' ? item.price.toLocaleString('en-IN') : item.price}</p>
               <h3 className={styles.catalogCode}>Code: {item.id}</h3>
@@ -134,6 +137,8 @@ export default function CatalogPage() {
           ))}
         </section>
       )}
+
+      {selectedSku && <SkuSummaryModal skuId={selectedSku} onClose={() => setSelectedSku(null)} />}
 
       <footer className={styles.footer} id="contact">
         <p>📍 <a href="https://www.google.com/maps/place/Rawat+Jewellers/@30.7388481,76.7457771,17z" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>Booth No 261, Sector 37-C, Chandigarh</a></p>

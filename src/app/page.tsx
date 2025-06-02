@@ -111,15 +111,6 @@ export default function Home() {
           height={400}
           className={styles.heroImage}
         />
-        <div className={styles.heroOverlay}>
-          <div className={styles.heroText}>
-            <h1 className={styles.heroHeading}>UNWRAP ELEGANCE</h1>
-            <p className={styles.heroSubheading}>
-              Discover Gold, Diamond and<br />Custom Jewellery
-            </p>
-            <a href="/catalog" className={styles.ctaBtn}>🛍️ View Catalogue</a>
-          </div>
-        </div>
       </section>
 
 <section id="catalogue" className={styles.catalogSection}>
