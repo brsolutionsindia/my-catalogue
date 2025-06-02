@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -6,7 +7,6 @@ import { db } from '../../firebaseConfig';
 import Image from 'next/image';
 import styles from '../page.module.css';
 import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 import SkuSummaryModal from '../components/SkuSummaryModal';
 import { useRouter } from 'next/navigation';
 
