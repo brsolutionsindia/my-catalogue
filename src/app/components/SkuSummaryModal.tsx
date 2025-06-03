@@ -31,13 +31,13 @@ type SkuData = {
   stone1?: string;
   St1Unit?: string;
   stone1Rate?: string;
-  st1RateUnit?: string;
+  St1RateUnit?: string;
   stone1Price?: string;
 
   stone2?: string;
   St2Unit?: string;
   stone2Rate?: string;
-  st2RateUnit?: string;
+  St2RateUnit?: string;
   stone2Price?: string;
 
   NetUnit?: string;
