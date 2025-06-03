@@ -1,3 +1,4 @@
+
 'use client';
 
 import styles from './page.module.css';
@@ -43,7 +44,8 @@ export default function Home() {
     <main className={styles.main} id="home" style={{ backgroundColor: '#fff', padding: '1rem' }}>
       {/* Navigation */}
       <nav className={styles.navbar} style={{ borderRadius: '12px', padding: '1rem', backgroundColor: '#f9f9f9' }}>
-        <div className={styles.hamburgerMenu}><span></span><span></span><span></span></div>
+{/*         <div className={styles.hamburgerMenu}><span></span><span></span><span></span></div> */}
+
         <div className={styles.branding}><Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} /></div>
         <ul className={styles.navLinks}><li><a href="#home">Home</a></li><li><a href="#catalogue">Catalogue</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li></ul>
       </nav>

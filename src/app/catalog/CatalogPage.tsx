@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -6,9 +5,8 @@ import { ref, onValue } from 'firebase/database';
 import { db } from '../../firebaseConfig';
 import Image from 'next/image';
 import styles from '../page.module.css';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import SkuSummaryModal from '../components/SkuSummaryModal';
-import { useRouter } from 'next/navigation';
 
 export default function CatalogPage() {
   type SkuData = {
@@ -25,10 +23,10 @@ export default function CatalogPage() {
     RG: 'Rings Collection',
     NK: 'Necklace Collection',
   };
-  const heading = typeFilter && typeMap[typeFilter] ? typeMap[typeFilter] : 'Our Collection';
+  const heading = typeFilter && typeMap[typeFilter] ? typeMap[typeFilter] : 'All Collection';
 
-  const [goldRate, setGoldRate] = useState("Loading...");
-  const [rateDate, setRateDate] = useState("");
+  const [goldRate, setGoldRate] = useState('Loading...');
+  const [rateDate, setRateDate] = useState('');
 
   const [selectedSku, setSelectedSku] = useState<string | null>(null);
 
@@ -36,6 +34,10 @@ export default function CatalogPage() {
 
   const navigateTo = (sectionId: string) => {
     router.push(`/#${sectionId}`);
+  };
+
+  const handleFilterClick = (type: string) => {
+    router.push(`/catalog?type=${type}`);
   };
 
   useEffect(() => {
@@ -83,10 +85,9 @@ export default function CatalogPage() {
   }, [typeFilter, sortOrder]);
 
   return (
-     <main className={styles.main} id="home" style={{ backgroundColor: '#fff', padding: '1rem' }}>
-      {/* Navigation */}
+    <main className={styles.main} id="home" style={{ backgroundColor: '#fff', padding: '1rem' }}>
       <nav className={styles.navbar} style={{ borderRadius: '12px', padding: '1rem', backgroundColor: '#f9f9f9' }}>
-        <div className={styles.hamburgerMenu}><span></span><span></span><span></span></div>
+{/*         <div className={styles.hamburgerMenu}><span></span><span></span><span></span></div> */}
         <div className={styles.branding}><Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} /></div>
         <ul className={styles.navLinks}>
           <li><button onClick={() => navigateTo('home')}>Home</button></li>
@@ -96,47 +97,55 @@ export default function CatalogPage() {
         </ul>
       </nav>
 
-
-      {/* Offer Banner */}
       <section className={styles.offerBanner} style={{ borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#f3f3f3' }}>
         <p className={styles.offerBanner}>22kt Gold Rate ({rateDate}): <span className={styles.goldRateText}>₹{goldRate}</span>/10gm{' '}<a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank" rel="noopener noreferrer" className={styles.bookGoldBtn}>🏦Book 22kt Digital Gold</a></p>
       </section>
 
+      <div style={{ display: 'flex', gap: '2rem' }}>
+        <aside style={{ width: '200px' }}>
+          <div className={styles.sidebarSection}><strong>Filters</strong></div>
+          <ul className={styles.sidebarList}>
+            <li><button onClick={() => handleFilterClick('')}>All</button></li>
+            <li><button onClick={() => handleFilterClick('ER')}>Earrings</button></li>
+            <li><button onClick={() => handleFilterClick('RG')}>Rings</button></li>
+            <li><button onClick={() => handleFilterClick('NK')}>Necklaces</button></li>
+          </ul>
+          <div className={styles.sidebarSection}><strong>Sort by</strong></div>
+          <select
+            id="sortSelect"
+            name="sortSelect"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
+            className={styles.sortDropdown}
+          >
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+          </select>
+        </aside>
 
-      <h1 className={styles.catalogTitle}>{heading}</h1>
-      <section className={styles.filterBar}>
-        <label htmlFor="filterSelect">Filter by: </label>
-        <select id="filterSelect" name="filterSelect">
-          <option value="all">All</option>
-          <option value="gold">Gold</option>
-          <option value="gemstones">Gemstones</option>
-          <option value="bridal">Bridal</option>
-        </select>
-        <label htmlFor="sortSelect" style={{ marginLeft: '2rem' }}>Sort by: </label>
-        <select
-          id="sortSelect"
-          name="sortSelect"
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
-        >
-          <option value="asc">Price: Low to High</option>
-          <option value="desc">Price: High to Low</option>
-        </select>
-      </section>
+        <section style={{ flexGrow: 1 }}>
+	
+{/* Heading & Count */}
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-xl font-bold">{heading}</h1>
+        </div>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <section className={styles.catalogGrid}>
-          {products.map((item) => (
-            <div key={item.id} className={styles.catalogCard} onClick={() => setSelectedSku(item.id)}>
-              <Image src={item.image} alt={item.id} width={200} height={200} className={styles.catalogImage} />
-              <p className={styles.catalogPrice}>₹{typeof item.price === 'number' ? item.price.toLocaleString('en-IN') : item.price}</p>
-              <h3 className={styles.catalogCode}>Code: {item.id}</h3>
-            </div>
-          ))}
+          <p className={styles.itemCount}>Showing {products.length} item(s)</p>
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <section className={styles.catalogGrid}>
+              {products.map((item) => (
+                <div key={item.id} className={styles.catalogCard} onClick={() => setSelectedSku(item.id)}>
+                  <Image src={item.image} alt={item.id} width={200} height={200} className={styles.catalogImage} />
+                  <p className={styles.catalogPrice}>₹{typeof item.price === 'number' ? item.price.toLocaleString('en-IN') : item.price}</p>
+                  <h3 className={styles.catalogCode}>Code: {item.id}</h3>
+                </div>
+              ))}
+            </section>
+          )}
         </section>
-      )}
+      </div>
 
       {selectedSku && <SkuSummaryModal skuId={selectedSku} onClose={() => setSelectedSku(null)} />}
 
