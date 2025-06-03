@@ -117,10 +117,14 @@ export default function CatalogPage() {
       rel="noopener noreferrer"
       className={styles.bookGoldBtn}
     >
-      Book Digital Gold
+      Digital Gold
     </a>
   </div>
 </section>
+
+
+
+
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
         <aside style={{ width: '100%', maxWidth: '200px' }}>

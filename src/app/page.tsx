@@ -77,7 +77,7 @@ export default function Home() {
       rel="noopener noreferrer"
       className={styles.bookGoldBtn}
     >
-      Book Digital Gold
+      Digital Gold
     </a>
   </div>
 </section>

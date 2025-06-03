@@ -59,7 +59,6 @@
   font-size: 0.95rem;
   white-space: nowrap;    /* ❗ Prevent text wrapping */
   overflow: hidden;
-  flex-shrink: 1;
 }
 
 
@@ -238,6 +237,11 @@
   }
 }
 
+@media (max-width: 480px) {
+  .catalogGrid {
+    grid-template-columns: repeat(2, 1fr); /* force 2 columns */
+  }
+}
 
 
 /* Ensure hero text is readable even on images */
@@ -262,7 +266,6 @@
 
 .catalogSection {
   padding: 1rem 1rem 0.5rem 1rem; /* 👈 Reduce bottom padding */
-  background-color: #0000;
 }
 
 .catalogContainer {
@@ -301,17 +304,17 @@
 
 .catalogGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
-  padding: 1rem 1.5rem 1rem 1.5rem; /* adds left (and horizontal) padding */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 10fr)); /* 👈 key change */
 }
-
 
 
 .catalogCard {
-  min-width: 200px;             /* Fix width for horizontal scroll */
-  scroll-snap-align: start;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  background: #fff;
 }
+
 
 .horizontalScroll {
   display: flex;
@@ -325,7 +328,6 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  padding: 1rem;
   flex-shrink: 0;
 }
 
@@ -346,7 +348,6 @@
   font-family: Arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  margin: 0.5rem 0;
 }
 
 .catalogCode {
@@ -357,29 +358,25 @@
 .catalogMain {
   font-family: 'Georgia', serif;
   background: #fdfaf6;
-  padding: 2rem;
-  min-height: 100vh;
 }
 
 .catalogTitle {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 2rem;
   color: #333;
 }
 
 .catalogGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
-  padding: 1rem 0;
+  gap: 0.1rem;
+  padding: 0.1rem 0;
 }
 
 .catalogCard {
   background: white;
   border: 1px solid #ddd;
-  padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   text-align: center;
