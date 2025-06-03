@@ -102,10 +102,10 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-40 px-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-xl relative">
-        <button className="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-xl" onClick={onClose}>✕</button>
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto relative flex flex-col">
+  <button className="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-xl" onClick={onClose}>✕</button>
 
-        {/* Product Image */}
+  {/* Product Image */}
         <div className="mb-4 text-center">
           <Image
             src={imageUrl}
@@ -114,7 +114,23 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
             height={280}
             className="rounded-lg border mx-auto"
           />
-        </div>
+
+  {/* Sticky Enquiry Button */}
+  <div className="sticky bottom-0 bg-white pt-4 pb-2 flex justify-center">
+    <a
+      href={`https://wa.me/919023130944?text=${encodeURIComponent(
+        `Hi I am interested in your jewellery item - ${skuId}. Please confirm its availability and payment details.`
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 px-6 py-2 bg-green-600 text-white rounded-full shadow-md hover:bg-green-700 transition text-sm font-medium"
+    >
+      {/* ...Icon & Label... */}
+      Enquire
+    </a>
+  </div>
+</div>
+
 
         {/* Price & Highlights */}
         <div className="text-center mb-4">
@@ -213,7 +229,7 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
           </div>
         </div>
         {/* Enquiry Floating Button at Modal Bottom */}
-        <div className="absolute bottom-4 left-0 w-full flex justify-center">
+        <div className="sticky bottom-0 bg-white pt-4 pb-2 flex justify-center">
           <a
             href={`https://wa.me/919023130944?text=${encodeURIComponent(
               `Hi I am interested in your jewellery item - ${skuId}. Please confirm its availability and payment details.`
