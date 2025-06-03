@@ -27,14 +27,8 @@ export default function CatalogPage() {
 
   const [goldRate, setGoldRate] = useState('Loading...');
   const [rateDate, setRateDate] = useState('');
-
   const [selectedSku, setSelectedSku] = useState<string | null>(null);
-
   const router = useRouter();
-
-  const navigateTo = (sectionId: string) => {
-    router.push(`/#${sectionId}`);
-  };
 
   const handleFilterClick = (type: string) => {
     router.push(`/catalog?type=${type}`);
@@ -85,24 +79,33 @@ export default function CatalogPage() {
   }, [typeFilter, sortOrder]);
 
   return (
-    <main className={styles.main} id="home" style={{ backgroundColor: '#fff', padding: '1rem' }}>
-      <nav className={styles.navbar} style={{ borderRadius: '12px', padding: '1rem', backgroundColor: '#f9f9f9' }}>
-{/*         <div className={styles.hamburgerMenu}><span></span><span></span><span></span></div> */}
-        <div className={styles.branding}><Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} /></div>
-        <ul className={styles.navLinks}>
-          <li><button onClick={() => navigateTo('home')}>Home</button></li>
-          <li><button onClick={() => navigateTo('catalogue')}>Catalogue</button></li>
-          <li><button onClick={() => navigateTo('testimonials')}>Testimonials</button></li>
-          <li><button onClick={() => navigateTo('contact')}>Contact</button></li>
-        </ul>
+    <main
+      className={styles.main}
+      id="home"
+      style={{ backgroundColor: '#fff', padding: '1rem', overflowX: 'hidden' }}
+    >
+      <nav
+        className={`${styles.navbar} flex flex-wrap items-center justify-between gap-4`}
+        style={{ borderRadius: '12px', padding: '1rem', backgroundColor: '#f9f9f9' }}
+      >
+        <div className={styles.branding}>
+          <Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} />
+        </div>
+
+<ul className="flex flex-wrap gap-4 justify-center w-full sm:w-auto text-sm font-medium">
+  <li><a href="/#home" className="hover:underline">Home</a></li>
+  <li><a href="/#catalogue" className="hover:underline">Catalog</a></li>
+  <li><a href="/#testimonials" className="hover:underline">Testimonials</a></li>
+  <li><a href="/#contact" className="hover:underline">Contact</a></li>
+</ul>
       </nav>
 
-      <section className={styles.offerBanner} style={{ borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#f3f3f3' }}>
-        <p className={styles.offerBanner}>22kt Gold Rate ({rateDate}): <span className={styles.goldRateText}>₹{goldRate}</span>/10gm{' '}<a href="https://api.whatsapp.com/send?phone=919023130944&text=Digital%20Gold" target="_blank" rel="noopener noreferrer" className={styles.bookGoldBtn}>🏦Book 22kt Digital Gold</a></p>
+      <section className={styles.offerBanner} id="catalogue" style={{ scrollMarginTop: '100px', borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#f3f3f3' }}>
+        <p className={styles.offerBanner}>22kt Gold Rate ({rateDate}): <span className={styles.goldRateText}>₹{goldRate}</span>/10gm{' '}<a href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details." target="_blank" rel="noopener noreferrer" className={styles.bookGoldBtn}>🏦Book 22kt Digital Gold</a></p>
       </section>
 
-      <div style={{ display: 'flex', gap: '2rem' }}>
-        <aside style={{ width: '200px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
+        <aside style={{ width: '100%', maxWidth: '200px' }}>
           <div className={styles.sidebarSection}><strong>Filters</strong></div>
           <ul className={styles.sidebarList}>
             <li><button onClick={() => handleFilterClick('')}>All</button></li>
@@ -124,11 +127,9 @@ export default function CatalogPage() {
         </aside>
 
         <section style={{ flexGrow: 1 }}>
-	
-{/* Heading & Count */}
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-bold">{heading}</h1>
-        </div>
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-xl font-bold">{heading}</h1>
+          </div>
 
           <p className={styles.itemCount}>Showing {products.length} item(s)</p>
           {loading ? (
@@ -151,9 +152,9 @@ export default function CatalogPage() {
 
       <footer className={styles.footer} id="contact">
         <p>📍 <a href="https://www.google.com/maps/place/Rawat+Jewellers/@30.7388481,76.7457771,17z" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>Booth No 261, Sector 37-C, Chandigarh</a></p>
-        <p>📞 <a href="https://wa.me/919023130944?text=Hello" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>+91-90231-30944</a> &nbsp;| 🕒 11:00 AM – 8:00 PM (Sunday Closed)</p>
+        <p>📞 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Hi%2C%20I%20was%20checking%20out%20your%20website%20and%20would%20like%20to%20know%20more%20details." target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>+91-90231-30944</a> &nbsp;| 🕒 11:00 AM – 8:00 PM (Sunday Closed)</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '1rem' }}>
-          <a href="https://www.google.com/maps/place/Rawat+Jewellers" target="_blank" rel="noopener noreferrer">
+          <a href="https://maps.app.goo.gl/kPp2ZNTVFte1LHt66" target="_blank" rel="noopener noreferrer">
             <Image src="/gmaps-icon.png" alt="G-Maps" width={30} height={30} />
           </a>
           <a href="https://www.facebook.com/rawatgemsjewellers" target="_blank" rel="noopener noreferrer">

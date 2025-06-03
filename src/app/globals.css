@@ -25,6 +25,7 @@
 /* 4. Base Styles */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Adjust to your navbar height */
 }
 
 body {
