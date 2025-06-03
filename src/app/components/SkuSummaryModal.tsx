@@ -143,7 +143,7 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
 
     {/* Price Info */}
     <div>
-      <div className="text-2xl font-bold text-green-700">{formatINR(skuData.grTotalPrice)}</div>
+      <div className="text-2xl font-bold text-green-700">{formatINR(skuData.grTotalPrice ?? "0")}</div>
       <div className="text-sm text-gray-500 italic">MRP inclusive of all taxes</div>
     </div>
   </div>
@@ -167,42 +167,42 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
             </>
           )}
 
-            <div><strong>Net Weight:</strong> {skuData.net} gm ({skuData.goldPurety}kt) × {formatINR(goldRate)}</div>
-            <div className="text-right"> = {formatINR(skuData.goldPrice)}</div>
+            <div><strong>Net Weight:</strong> {skuData.net} gm ({skuData.goldPurety}kt) × {formatINR(goldRate ?? "0")}</div>
+            <div className="text-right"> = {formatINR(skuData.goldPrice ?? "0")}</div>
 
             {summary.containsD && skuData.stone1 && parseFloat(skuData.stone1) > 0 && (
               <>
                 <div><strong>Diamond:</strong> {skuData.stone1} {skuData.St1Unit} × {skuData.stone1Rate} {skuData.St1RateUnit} </div>
-                <div className="text-right">= {formatINR(skuData.stone1Price)}</div>
+                <div className="text-right">= {formatINR(skuData.stone1Price ?? "0")}</div>
               </>
             )}
 
             {summary.containsSt && skuData.stone2 && parseFloat(skuData.stone2) > 0 && (
               <>
                 <div><strong>Stone:</strong> {skuData.stone2} {skuData.St2Unit} × {skuData.stone2Rate} {skuData.St2RateUnit}</div>
-                <div className="text-right">= {formatINR(skuData.stone2Price)}</div>
+                <div className="text-right">= {formatINR(skuData.stone2Price ?? "0")}</div>
               </>
             )}
 
             {skuData.labour && parseFloat(skuData.labour) > 0 && (
               <>
                 <div><strong>Making Charges:</strong></div>		      {/*{skuData.labour}{skuData.LabourUnit}*/}
-                <div className="text-right">= {formatINR(skuData.labourPrice)}</div>
+                <div className="text-right">= {formatINR(skuData.labourPrice ?? "0")}</div>
               </>
             )}
 
             {skuData.polish && parseFloat(skuData.polishPrice) > 0 && (
               <>
               <div><strong>Polish:</strong></div>
-              <div className="text-right">{formatINR(skuData.polishPrice)}</div></>
+              <div className="text-right">{formatINR(skuData.polishPrice ?? "0")}</div></>
             )}
 
             {skuData.miscPrice && parseFloat(skuData.miscPrice) > 0 && (
-              <><div><strong>Misc:</strong></div><div className="text-right">{formatINR(skuData.miscPrice)}</div></>
+              <><div><strong>Misc:</strong></div><div className="text-right">{formatINR(skuData.miscPrice ?? "0")}</div></>
             )}
 
             {skuData.gstPrice && (
-              <><div><strong>GST ({gstRate}%):</strong></div><div className="text-right">= {formatINR(skuData.gstPrice)}</div></>
+              <><div><strong>GST ({gstRate}%):</strong></div><div className="text-right">= {formatINR(skuData.gstPrice ?? "0")}</div></>
             )}
 
           </div>
