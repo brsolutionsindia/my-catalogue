@@ -29,13 +29,13 @@ type SkuData = {
   diam1Price?: string;
 
   stone1?: string;
-  st1Unit?: string;
+  St1Unit?: string;
   stone1Rate?: string;
   st1RateUnit?: string;
   stone1Price?: string;
 
   stone2?: string;
-  st2Unit?: string;
+  St2Unit?: string;
   stone2Rate?: string;
   st2RateUnit?: string;
   stone2Price?: string;
