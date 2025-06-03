@@ -1,4 +1,3 @@
-
 'use client';
 
 import styles from './page.module.css';
@@ -52,7 +51,7 @@ export default function Home() {
 >
   {/* Logo Section */}
   <div className={styles.branding}>
-    <Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} />
+    <Image src="/logo.png" alt="Logo" width={80} height={30} className={styles.logoImg} />
   </div>
 
   {/* Navigation Links */}
@@ -65,9 +64,23 @@ export default function Home() {
 </nav>
 
       {/* Offer Banner */}
-      <section className={styles.offerBanner} style={{ borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#f3f3f3' }}>
-        <p className={styles.offerBanner}>22kt Gold Rate ({rateDate}): <span className={styles.goldRateText}>₹{goldRate}</span>/10gm{' '}<a href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details." target="_blank" rel="noopener noreferrer" className={styles.bookGoldBtn}>🏦Book 22kt Digital Gold</a></p>
-      </section>
+      <section className={styles.offerBanner} style={{ borderRadius: '12px', backgroundColor: '#f3f3f3' }}>
+<div className={styles.offerContent}>
+    <span className={styles.goldLabel}>
+	22kt Gold Rate ({rateDate?.slice(0, 5)}):
+    </span>
+    <span className={styles.goldRateText}>₹{goldRate?.slice(0, 4)}</span>
+    <span className={styles.unitText}>/gm</span>
+    <a
+      href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details."
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.bookGoldBtn}
+    >
+      Book Digital Gold
+    </a>
+  </div>
+</section>
 
       {/* Hero */}
       <section className={styles.hero} style={{ borderRadius: '12px', marginTop: '1rem', overflow: 'hidden' }}>
@@ -75,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* Product Grid */}
-      <section id="catalogue" className={styles.catalogSection} style={{ borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#f9f9f9' }}>
+      <section id="catalogue" className={styles.catalogSection} style={{ borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#fff8e7' }}>
         <div className={styles.catalogContainer}>
           <div className={styles.catalogBanner}><Image src="/products-banner.png" alt="Product Banner" width={500} height={350} className={styles.bannerImage} /></div>
           <div className={styles.catalogSlider}>
