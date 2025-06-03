@@ -40,7 +40,7 @@ type SkuData = {
   st2RateUnit?: string;
   stone2Price?: string;
 
-  netUnit?: string;
+  NetUnit?: string;
 };
 
 const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
@@ -91,9 +91,9 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
     const goldPrice = parseFloat(String(skuData.goldPrice || '0'));
     const onlyStone = goldPrice === 0;
     const noStone = gross === net;
-    const netUnit = skuData.NetUnit || '';
-    const containsD = netUnit.includes('S1');
-    const containsSt = netUnit.includes('S2');
+    const NetUnit = skuData.NetUnit || '';
+    const containsD = NetUnit.includes('S1');
+    const containsSt = NetUnit.includes('S2');
 
     return { gross, net, goldPrice, onlyStone, noStone, containsD, containsSt };
   }, [skuData]);
