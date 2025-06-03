@@ -7,6 +7,8 @@ import Image from 'next/image';
 import styles from '../page.module.css';
 import { useSearchParams, useRouter } from 'next/navigation';
 import SkuSummaryModal from '../components/SkuSummaryModal';
+import Link from 'next/link';
+
 
 export default function CatalogPage() {
   type SkuData = {
@@ -93,11 +95,12 @@ export default function CatalogPage() {
         </div>
 
 <ul className="flex flex-wrap gap-4 justify-center w-full sm:w-auto text-sm font-medium">
-  <li><a href="/#home" className="hover:underline">Home</a></li>
-  <li><a href="/#catalogue" className="hover:underline">Catalog</a></li>
-  <li><a href="/#testimonials" className="hover:underline">Testimonials</a></li>
-  <li><a href="/#contact" className="hover:underline">Contact</a></li>
+  <li><Link href="/#home" className="hover:underline">Home</Link></li>
+  <li><Link href="/#catalogue" className="hover:underline">Catalog</Link></li>
+  <li><Link href="/#testimonials" className="hover:underline">Testimonials</Link></li>
+  <li><Link href="/#contact" className="hover:underline">Contact</Link></li>
 </ul>
+
       </nav>
 
       <section className={styles.offerBanner} id="catalogue" style={{ scrollMarginTop: '100px', borderRadius: '12px', marginTop: '1rem', padding: '1rem', backgroundColor: '#f3f3f3' }}>
