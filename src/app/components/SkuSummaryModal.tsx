@@ -103,6 +103,7 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-40 px-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto relative flex flex-col">
+  <div className="pb-32 px-4">
   <button className="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-xl" onClick={onClose}>✕</button>
 
   {/* Product Image */}
@@ -236,6 +237,7 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
             )}
           </div>
         </div>
+	</div>
       </div>
     </div>
   );
