@@ -141,30 +141,9 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
 
 
 
-        {/* Price & Highlights */}
+        {/* Price */}
         <div className="text-center mb-4">
           <div className="flex items-center justify-center gap-4">
-            {/* Certified Diamonds Logo - Left */}
-            {summary.containsD && skuData.stone1 && parseFloat(skuData.stone1) > 0 && (
-<>
-              <Image
-                src="/certified_diamonds.png"
-                alt="Certified Diamonds"
-                width={96}
-                height={96}
-                className="object-contain"
-              />
-</>
-            )}
-
-            {/* BIS Logo - Right */}
-            <Image
-              src="/bis.png"
-              alt="BIS Hallmark"
-              width={64}
-              height={64}
-              className="object-contain"
-            />
             {/* Price Info */}
             <div>
               <div className="text-2xl font-bold text-green-700">{formatINR(skuData.grTotalPrice ?? "0")}</div>
@@ -237,6 +216,34 @@ const SkuSummaryModal: React.FC<Props> = ({ skuId, onClose }) => {
             )}
           </div>
         </div>
+
+        {/* Highlights */}
+        <div className="text-center mb-4">
+          <div className="flex items-center justify-center gap-4">
+            {/* Certified Diamonds Logo - Left */}
+            {summary.containsD && skuData.stone1 && parseFloat(skuData.stone1) > 0 && (
+<>
+              <Image
+                src="/certified_diamonds.png"
+                alt="Certified Diamonds"
+                width={64}
+                height={64}
+                className="object-contain"
+              />
+</>
+            )}
+
+            {/* BIS Logo - Right */}
+            <Image
+              src="/bis.png"
+              alt="BIS Hallmark"
+              width={64}
+              height={64}
+              className="object-contain"
+            />
+          </div>
+        </div>
+
 	</div>
       </div>
     </div>
