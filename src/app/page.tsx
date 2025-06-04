@@ -55,12 +55,12 @@ export default function Home() {
   </div>
 
   {/* Navigation Links */}
-  <ul className="flex flex-wrap gap-4 justify-center w-full sm:w-auto text-sm font-medium">
-    <li><a href="#home" className="hover:underline">Home</a></li>
-    <li><a href="#catalogue" className="hover:underline">Catalog</a></li>
-    <li><a href="#testimonials" className="hover:underline">Testimonials</a></li>
-    <li><a href="#contact" className="hover:underline">Contact</a></li>
-  </ul>
+<ul className={`${styles.navLinksScrollable}`}>
+  <li><a href="#home" className="hover:underline">Home</a></li>
+  <li><a href="#catalogue" className="hover:underline">Catalog</a></li>
+  <li><a href="#testimonials" className="hover:underline">Testimonials</a></li>
+  <li><a href="#contact" className="hover:underline">Contact</a></li>
+</ul>
 </nav>
 
       {/* Offer Banner */}

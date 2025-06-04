@@ -59,6 +59,7 @@
   font-size: 0.95rem;
   white-space: nowrap;    /* ❗ Prevent text wrapping */
   overflow: hidden;
+  flex-shrink: 1;
 }
 
 
@@ -447,4 +448,18 @@
 
 .bookGoldBtn:hover {
   background-color: #a66f1c;
+}
+
+.navLinksScrollable {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.navLinksScrollable::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
