@@ -75,10 +75,12 @@ export default function Home() {
       </nav>
 
       {/* Offer Banner or Horizontal Scroll */}
-      {0? (
-        <div className={styles.horizontalScroll} style={{ marginTop: '1rem', paddingBottom: '0.5rem' }}>
+      {/* isMobile is to be ignored here*/}
+
+      {isMobile? (
+        <div className={styles.horizontalScroll} style={{ marginTop: '1rem', paddingBottom: '0.5rem', borderRadius: '12px', backgroundColor: '#f3f3f3'}}>
           <div className={styles.productCardHorizontal}>
-            <span className={styles.goldLabel}>({rateDate})22kt Gold Rate:</span>
+            <span className={styles.goldLabel}>({rateDate?.slice(0, 5)})22kt Gold Rate:</span>
             <span className={styles.goldRateText}>₹{goldRate}</span>
             <span className={styles.unitText}>/10gm</span>
             <a
@@ -95,7 +97,7 @@ export default function Home() {
         <section className={styles.offerBanner} style={{ borderRadius: '12px', backgroundColor: '#f3f3f3' }}>
           <div className={styles.offerContent}>
             <span className={styles.goldLabel}>
-            22kt Gold Rate ({rateDate}):
+            ({rateDate})22kt Rate:
             </span>
             <span className={styles.goldRateText}>₹{goldRate}</span>
             <span className={styles.unitText}>/10gm</span>
@@ -105,7 +107,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className={styles.bookGoldBtn}
             >
-              Book
+              Book Digital Gold
             </a>
           </div>
         </section>
