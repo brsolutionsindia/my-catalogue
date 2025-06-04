@@ -571,7 +571,7 @@
 
 .catalogCard {
   transform-origin: top left;
-  width: 60%; /* ensure full width within scaled card */
+  width: 30%; /* ensure full width within scaled card */
   background: white;
   border: 1px solid #ddd;
   border-radius: 10px;
