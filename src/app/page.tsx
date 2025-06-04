@@ -75,7 +75,7 @@ export default function Home() {
       </nav>
 
       {/* Offer Banner or Horizontal Scroll */}
-      {isMobile ? (
+      {0? (
         <div className={styles.horizontalScroll} style={{ marginTop: '1rem', paddingBottom: '0.5rem' }}>
           <div className={styles.productCardHorizontal}>
             <span className={styles.goldLabel}>({rateDate})22kt Gold Rate:</span>

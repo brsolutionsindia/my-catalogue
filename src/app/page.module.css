@@ -296,11 +296,10 @@
 .catalogGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 0.5rem;
+  gap: 0.5rem 0.5rem; /* vertical gap (row), horizontal gap (column) */
 }
 
 .catalogCard {
-  transform: scale(0.8); /* 👈 shrink entire card */
   transform-origin: top left;
   width: 100%; /* ensure full width within scaled card */
   background: white;
@@ -313,7 +312,8 @@
 }
 
 .catalogCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
+  transform: scale(1.2); /* base scale */
 }
 
 .catalogImage {
@@ -345,6 +345,7 @@
   color: #555;
   font-size: 0.7rem;
 }
+
 
 /* ===============================
    Horizontal Scroll Cards
@@ -435,77 +436,128 @@
   margin-bottom: 1rem;
 }
 
+.filterOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 /* ===============================
-   Media Queries
+   Footer Menu
 =============================== */
-@media (max-width: 768px) {
-  .navLinks {
-    display: none;
-  }
 
-  .heroOverlay {
-    left: 5%;
-    top: 30%;
-    transform: translate(-50%, -30%);
-    font-size: 0.9rem;
-  }
+.footerMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding: 0.75rem 0;
+  z-index: 1001;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 16px 16px 0 0;
+}
 
-  .productGrid {
-    grid-template-columns: 1fr 1fr;
-  }
+.footerButton {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
 
-  .testimonialCards {
-    font-size: 0.9rem;
+.footerButton:hover {
+  background: #f1f1f1;
+  color: #111;
+}
+
+.popupMenu {
+  position: fixed;
+  bottom: 4.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  z-index: 1100;
+  padding: 1rem;
+  min-width: 220px;
+  text-align: center;
+  animation: slideUp 0.3s ease-out;
+}
+
+.popupMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popupMenu li {
+  padding: 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+  border-bottom: 1px solid #eee;
+}
+
+.popupMenu li:last-child {
+  border-bottom: none;
+}
+
+.popupMenu li:hover {
+  background-color: #f9f9f9;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
 
-@media (max-width: 600px) {
-  .offerContainer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+/* ===============================
+   General Layout Enhancements
+=============================== */
 
-  .leftSection,
-  .rightSection {
-    align-items: center;
-  }
-
-  .rightSection {
-    margin-top: 0.5rem;
-  }
-
-  .catalogGrid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* smaller cards */
-    gap: 0.3rem; /* tighter gap */
-    padding: 0.2rem 0;
-  }
-
-  .catalogCard {
-    transform: scale(0.75); /* even more compact on mobile */
-    transform-origin: top center;
-  }
-
-  .catalogPrice {
-    font-size: 0.75rem;
-  }
-
-  .catalogCode {
-    font-size: 0.65rem;
-  }
-
-  .productLabel {
-    font-size: 0.75rem;
-  }
-
-  .catalogSection {
-    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
-  }
-
+.catalogGrid {
+  padding-bottom: 5rem; /* spacing above footer menu */
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-@media (max-width: 480px) {
-  .catalogGrid {
-    grid-template-columns: repeat(2, 1fr); /* force 2 columns */
-  }
+.main {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
