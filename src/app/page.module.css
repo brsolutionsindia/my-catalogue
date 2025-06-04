@@ -269,7 +269,7 @@
 
 .catalogBanner {
   flex: 1 1 40%;
-  min-width: 300px;
+  min-width: 30px;
   margin-bottom: 0.05rem;
 }
 
@@ -296,12 +296,12 @@
 .catalogGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 0.5rem 0.5rem; /* vertical gap (row), horizontal gap (column) */
+  gap: 0.1rem 0.1rem; /* vertical gap (row), horizontal gap (column) */
 }
 
 .catalogCard {
   transform-origin: top left;
-  width: 100%; /* ensure full width within scaled card */
+  width: 90%; /* ensure full width within scaled card */
   background: white;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -351,12 +351,10 @@
    Horizontal Scroll Cards
 =============================== */
 .horizontalScroll {
-  align-items: center;
   display: flex;
   overflow-x: auto;
   gap: 1rem;
   padding-bottom: 0.5rem;
-  flex-wrap: nowrap;
 }
 
 .productCardHorizontal {
@@ -366,20 +364,6 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   flex-shrink: 0;
 }
-
-.offerContent {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-  white-space: nowrap;
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
-  font-weight: bold;
-  text-align: center;
-}
-
-
-
 
 .productImg {
   border-radius: 8px;
