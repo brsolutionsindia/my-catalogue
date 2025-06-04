@@ -1,8 +1,14 @@
+/* ===============================
+   Base Layout and Typography
+=============================== */
 .main {
   font-family: 'Georgia', serif;
   padding-bottom: 60px;
 }
 
+/* ===============================
+   Navbar
+=============================== */
 .navbar {
   display: flex;
   align-items: center;
@@ -17,12 +23,10 @@
   z-index: 10;
 }
 
-
 .hamburgerMenu {
   height: 100%;
   justify-content: center;
 }
-
 
 .hamburgerMenu span {
   width: 20px;
@@ -38,14 +42,11 @@
   min-width: 0;
 }
 
-
-
 .logoImg {
   height: 28px;
   width: auto;
   object-fit: contain;
 }
-
 
 .logoText {
   font-size: 1.5rem;
@@ -62,11 +63,28 @@
   flex-shrink: 1;
 }
 
-
 .navLinks li {
   cursor: pointer;
 }
 
+.navLinksScrollable {
+  display: flex;
+  flex-wrap: nowrap; /* ✅ No wrapping */
+  overflow-x: auto;   /* ✅ Enable scroll */
+  gap: 1rem;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.navLinksScrollable::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* ===============================
+   Hero Section
+=============================== */
 .hero {
   position: relative;
   width: 100%;
@@ -77,7 +95,7 @@
 .heroText {
   color: white !important;
   text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .heroHeading {
@@ -109,6 +127,9 @@
   width: 100%;
 }
 
+/* ===============================
+   CTA Button
+=============================== */
 .ctaBtn {
   background-color: #cc8c23;
   color: #fff;
@@ -119,6 +140,9 @@
   display: inline-block;
 }
 
+/* ===============================
+   Product Grid and Cards
+=============================== */
 .filterBar {
   padding: 1rem 2rem;
   display: flex;
@@ -147,6 +171,9 @@
   object-fit: cover;
 }
 
+/* ===============================
+   Testimonials
+=============================== */
 .testimonials {
   padding: 2rem;
   background: #fef7e0;
@@ -160,12 +187,18 @@
   margin-top: 1rem;
 }
 
+/* ===============================
+   Footer
+=============================== */
 .footer {
   text-align: center;
   padding: 2rem;
   background: #eee;
 }
 
+/* ===============================
+   WhatsApp Button
+=============================== */
 .whatsappBtn {
   position: fixed;
   bottom: 20px;
@@ -182,7 +215,9 @@
   text-decoration: none;
 }
 
-
+/* ===============================
+   Video Section
+=============================== */
 .thumbnailWrapper {
   position: relative;
   display: inline-block;
@@ -205,69 +240,6 @@
   opacity: 0.5;
 }
 
-.googleReview {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-  .navLinks {
-    display: none;
-  }
-
-  .heroOverlay {
-    left: 50%;
-    transform: translate(-50%, -30%);
-    font-size: 1rem;
-  }
-
-  .heroOverlay {
-    left: 5%;
-    top: 30%;
-    font-size: 0.9rem;
-  }
-
-  .productGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .testimonialCards {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .offerContainer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .leftSection,
-  .rightSection {
-    align-items: center;
-  }
-
-  .rightSection {
-    margin-top: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .catalogGrid {
-    grid-template-columns: repeat(2, 1fr); /* force 2 columns */
-  }
-}
-
-
-/* Ensure hero text is readable even on images */
-.heroText {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-
 .videoSection {
   background-color: #fff8e7;
   padding: 2rem 1rem;
@@ -281,7 +253,9 @@
   padding: 1rem 0;
 }
 
-
+/* ===============================
+   Catalog Section
+=============================== */
 .catalogSection {
   padding: 1rem 1rem 0.5rem 1rem; /* 👈 Reduce bottom padding */
 }
@@ -293,11 +267,10 @@
   align-items: flex-start;
 }
 
-
 .catalogBanner {
   flex: 1 1 40%;
   min-width: 300px;
-  margin-bottom: 0.05rem; /* 👈 Add this line */
+  margin-bottom: 0.05rem;
 }
 
 .bannerImage {
@@ -317,71 +290,6 @@
   font-weight: bold;
   text-align: center; /* 👈 Add this */
   margin-bottom: 2rem;
-  color: #333;
-}
-
-.catalogGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 10fr)); /* 👈 key change */
-}
-
-
-.catalogCard {
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  background: #fff;
-}
-
-
-.horizontalScroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  padding-bottom: 0.5rem;
-}
-
-.productCardHorizontal {
-  min-width: 160px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  flex-shrink: 0;
-}
-
-.productImg {
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.productLabel {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #222;
-}
-
-.catalogPrice {
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: normal;
-}
-
-.catalogCode {
-  font-style: italic;
-  color: #555;
-}
-
-.catalogMain {
-  font-family: 'Georgia', serif;
-  background: #fdfaf6;
-}
-
-.catalogTitle {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
   color: #333;
 }
 
@@ -413,39 +321,56 @@
   object-fit: cover;
 }
 
-
-.offerContent {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-  white-space: nowrap;
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
-  font-weight: bold;
-  text-align: center;
+.catalogMain {
+  font-family: 'Georgia', serif;
+  background: #fdfaf6;
 }
 
-.goldRateText {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: bold;
-  color: #000;
+.productLabel {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
 }
 
-.navLinksScrollable {
+.catalogPrice {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.catalogCode {
+  font-style: italic;
+  color: #555;
+}
+
+/* ===============================
+   Horizontal Scroll Cards
+=============================== */
+.horizontalScroll {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
   overflow-x: auto;
-  white-space: nowrap;
-  font-size: 0.95rem;
-  scrollbar-width: none; /* Firefox */
+  gap: 1rem;
+  padding-bottom: 0.5rem;
 }
 
-.navLinksScrollable::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+.productCardHorizontal {
+  min-width: 160px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  flex-shrink: 0;
 }
 
+.productImg {
+  border-radius: 8px;
+  object-fit: cover;
+}
 
+/* ===============================
+   Offer Banner
+=============================== */
 .offerBanner {
   background-color: #f3f3f3;
   border-radius: 12px;
@@ -497,4 +422,61 @@
 
 .bookGoldBtn:hover {
   background-color: #a66f1c;
+}
+
+/* ===============================
+   Google Review
+=============================== */
+.googleReview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* ===============================
+   Media Queries
+=============================== */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+
+  .heroOverlay {
+    left: 5%;
+    top: 30%;
+    transform: translate(-50%, -30%);
+    font-size: 0.9rem;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .testimonialCards {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .offerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .leftSection,
+  .rightSection {
+    align-items: center;
+  }
+
+  .rightSection {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalogGrid {
+    grid-template-columns: repeat(2, 1fr); /* force 2 columns */
+  }
 }
