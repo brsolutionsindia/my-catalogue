@@ -296,12 +296,12 @@
 .catalogGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 0.1rem 0.1rem; /* vertical gap (row), horizontal gap (column) */
+  gap: 0.5rem 0.5rem; /* vertical gap (row), horizontal gap (column) */
 }
 
 .catalogCard {
   transform-origin: top left;
-  width: 90%; /* ensure full width within scaled card */
+  width: 100%; /* ensure full width within scaled card */
   background: white;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -560,4 +560,24 @@
 .main {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+
+@media (max-width: 600px) {
+.catalogGrid {
+  display: grid;
+  gap: 0.1rem 0.1rem; /* vertical gap (row), horizontal gap (column) */
+}
+
+.catalogCard {
+  transform-origin: top left;
+  width: 60%; /* ensure full width within scaled card */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+  color: #333;
+}
 }
