@@ -11,7 +11,7 @@ import './globals.css';
 export default function Home() {
   const [goldRate, setGoldRate] = useState("Loading...");
   const [rateDate, setRateDate] = useState("");
-
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const rateRef = ref(db, 'Global SKU/Rates/Gold 22kt');
@@ -26,6 +26,16 @@ export default function Home() {
       const date = snapshot.val();
       setRateDate(date);
     });
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
   }, []);
 
   const productItems = [
@@ -42,47 +52,64 @@ export default function Home() {
 
   return (
     <main className={styles.main} id="home" style={{ backgroundColor: '#fff', padding: '1rem' }}>
-<nav
-  className={`${styles.navbar} flex flex-wrap items-center justify-between gap-4`}
-  style={{
-    borderRadius: '12px',
-    padding: '1rem',
-    backgroundColor: '#f9f9f9',
-  }}
->
-  {/* Logo Section */}
-  <div className={styles.branding}>
-    <Image src="/logo.png" alt="Logo" width={80} height={30} className={styles.logoImg} />
-  </div>
+      <nav
+        className={`${styles.navbar} flex flex-wrap items-center justify-between gap-4`}
+        style={{
+          borderRadius: '12px',
+          padding: '1rem',
+          backgroundColor: '#f9f9f9',
+        }}
+      >
+        {/* Logo Section */}
+        <div className={styles.branding}>
+          <Image src="/logo.png" alt="Logo" width={80} height={30} className={styles.logoImg} />
+        </div>
 
-  {/* Navigation Links */}
-<ul className={`${styles.navLinksScrollable}`}>
-  <li><a href="#home" className="hover:underline">Home</a></li>
-  <li><a href="#catalogue" className="hover:underline">Catalog</a></li>
-  <li><a href="#testimonials" className="hover:underline">Testimonials</a></li>
-  <li><a href="#contact" className="hover:underline">Contact</a></li>
-</ul>
-</nav>
+        {/* Navigation Links */}
+        <ul className={`${styles.navLinksScrollable}`}>
+          <li><a href="#home" className="hover:underline">Home</a></li>
+          <li><a href="#catalogue" className="hover:underline">Catalog</a></li>
+          <li><a href="#testimonials" className="hover:underline">Testimonials</a></li>
+          <li><a href="#contact" className="hover:underline">Contact</a></li>
+        </ul>
+      </nav>
 
-      {/* Offer Banner */}
-      <section className={styles.offerBanner} style={{ borderRadius: '12px', backgroundColor: '#f3f3f3' }}>
-<div className={styles.offerContent}>
-    <span className={styles.goldLabel}>
-	22kt Gold Rate ({rateDate}):
-    </span>
-    <span className={styles.goldRateText}>₹{goldRate}</span>
-    <span className={styles.unitText}>/10gm</span>
-    <a
-      href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details."
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.bookGoldBtn}
-    >
-      Book
-    </a>
-  </div>
-</section>
-
+      {/* Offer Banner or Horizontal Scroll */}
+      {isMobile ? (
+        <div className={styles.horizontalScroll} style={{ marginTop: '1rem', paddingBottom: '0.5rem' }}>
+          <div className={styles.productCardHorizontal}>
+            <span className={styles.goldLabel}>22kt Gold Rate ({rateDate}):</span>
+            <span className={styles.goldRateText}>₹{goldRate}</span>
+            <span className={styles.unitText}>/10gm</span>
+            <a
+              href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.bookGoldBtn}
+            >
+              Book
+            </a>
+          </div>
+        </div>
+      ) : (
+        <section className={styles.offerBanner} style={{ borderRadius: '12px', backgroundColor: '#f3f3f3' }}>
+          <div className={styles.offerContent}>
+            <span className={styles.goldLabel}>
+            22kt Gold Rate ({rateDate}):
+            </span>
+            <span className={styles.goldRateText}>₹{goldRate}</span>
+            <span className={styles.unitText}>/10gm</span>
+            <a
+              href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.bookGoldBtn}
+            >
+              Book
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* Hero */}
       <section className={styles.hero} style={{ borderRadius: '12px', marginTop: '1rem', overflow: 'hidden' }}>
