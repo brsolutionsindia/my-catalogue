@@ -9,7 +9,6 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import SkuSummaryModal from '../components/SkuSummaryModal';
 import Link from 'next/link';
 
-
 export default function CatalogPage() {
   type SkuData = {
     grTotalPrice?: number;
@@ -30,6 +29,7 @@ export default function CatalogPage() {
   const [goldRate, setGoldRate] = useState('Loading...');
   const [rateDate, setRateDate] = useState('');
   const [selectedSku, setSelectedSku] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
 
   const handleFilterClick = (type: string) => {
@@ -44,6 +44,13 @@ export default function CatalogPage() {
 
     onValue(rateRef, (snapshot) => setGoldRate(snapshot.val()));
     onValue(dateRef, (snapshot) => setRateDate(snapshot.val()));
+
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
 
     onValue(skuRef, (skuSnap) => {
       const skuData = skuSnap.val();
@@ -78,54 +85,71 @@ export default function CatalogPage() {
         setLoading(false);
       });
     });
+
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
   }, [typeFilter, sortOrder]);
 
   return (
-    <main
-      className={styles.main}
-      id="home"
-      style={{ backgroundColor: '#fff', padding: '1rem', overflowX: 'hidden' }}
+    <main 
+    className={styles.main} 
+    id="home" 
+    style={{ backgroundColor: '#fff', padding: '1rem', overflowX: 'hidden' }}
     >
       <nav
         className={`${styles.navbar} flex flex-wrap items-center justify-between gap-4`}
         style={{ borderRadius: '12px', padding: '1rem', backgroundColor: '#f9f9f9' }}
       >
         <div className={styles.branding}>
-          <Image src="/logo.png" alt="Logo" width={100} height={50} className={styles.logoImg} />
+          <Image src="/logo.png" alt="Logo" width={80} height={30} className={styles.logoImg} />
         </div>
 
-<ul className="flex flex-wrap gap-4 justify-center w-full sm:w-auto text-sm font-medium">
-  <li><Link href="/#home" className="hover:underline">Home</Link></li>
-  <li><Link href="/#catalogue" className="hover:underline">Catalog</Link></li>
-  <li><Link href="/#testimonials" className="hover:underline">Testimonials</Link></li>
-  <li><Link href="/#contact" className="hover:underline">Contact</Link></li>
-</ul>
-
+        <ul className={`${styles.navLinksScrollable}`}>
+          <li><a href="/#home" className="hover:underline">Home</a></li>
+          <li><a href="/#catalogue" className="hover:underline">Catalog</a></li>
+          <li><a href="/#testimonials" className="hover:underline">Testimonials</a></li>
+          <li><a href="/#contact" className="hover:underline">Contact</a></li>
+        </ul>
       </nav>
 
-      {/* Offer Banner */}
-      <section className={styles.offerBanner} style={{ borderRadius: '12px', backgroundColor: '#f3f3f3' }}>
-<div className={styles.offerContent}>
-    <span className={styles.goldLabel}>
-	22kt Gold Rate ({rateDate}):
-    </span>
-    <span className={styles.goldRateText}>₹{goldRate}</span>
-    <span className={styles.unitText}>/10gm</span>
-    <a
-      href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details."
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.bookGoldBtn}
-    >
-      Book
-    </a>
-  </div>
-</section>
-
-
-
-
-
+        {/* Offer Banner */}
+      {isMobile ? (
+        <div className={styles.horizontalScroll} style={{ marginTop: '1rem', paddingBottom: '0.5rem' }}>
+          <div className={styles.productCardHorizontal}>
+            <span className={styles.goldLabel}>({rateDate})22kt Gold Rate:</span>
+            <span className={styles.goldRateText}>₹{goldRate}</span>
+            <span className={styles.unitText}>/10gm</span>
+            <a
+              href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.bookGoldBtn}
+            >
+              Book
+            </a>
+          </div>
+        </div>
+      ) : (
+        <section className={styles.offerBanner} style={{ borderRadius: '12px', backgroundColor: '#f3f3f3' }}>
+          <div className={styles.offerContent}>
+            <span className={styles.goldLabel}>
+            22kt Gold Rate ({rateDate}):
+            </span>
+            <span className={styles.goldRateText}>₹{goldRate}</span>
+            <span className={styles.unitText}>/10gm</span>
+            <a
+              href="https://api.whatsapp.com/send?phone=919023130944&text=Hello%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20Digital%20Gold%20services.%20Please%20share%20the%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.bookGoldBtn}
+            >
+              Book
+            </a>
+          </div>
+        </section>
+      )}
+      
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
         <aside style={{ width: '100%', maxWidth: '200px' }}>
           <div className={styles.sidebarSection}><strong>Filters</strong></div>

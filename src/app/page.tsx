@@ -78,7 +78,7 @@ export default function Home() {
       {isMobile ? (
         <div className={styles.horizontalScroll} style={{ marginTop: '1rem', paddingBottom: '0.5rem' }}>
           <div className={styles.productCardHorizontal}>
-            <span className={styles.goldLabel}>22kt Gold Rate ({rateDate}):</span>
+            <span className={styles.goldLabel}>({rateDate})22kt Gold Rate:</span>
             <span className={styles.goldRateText}>₹{goldRate}</span>
             <span className={styles.unitText}>/10gm</span>
             <a
