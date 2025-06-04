@@ -12,6 +12,7 @@ export default function Home() {
   const [goldRate, setGoldRate] = useState("Loading...");
   const [rateDate, setRateDate] = useState("");
 
+
   useEffect(() => {
     const rateRef = ref(db, 'Global SKU/Rates/Gold 22kt');
     const dateRef = ref(db, 'Global SKU/Rates/Date');
