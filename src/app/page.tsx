@@ -164,7 +164,7 @@ export default function Home() {
         <p>📍 <a href="https://maps.app.goo.gl/kPp2ZNTVFte1LHt66" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>Booth No 261, Sector 37-C, Chandigarh</a></p>
         <p>📞 <a href="https://api.whatsapp.com/send?phone=919023130944&text=Hi%2C%20I%20was%20checking%20out%20your%20website%20and%20would%20like%20to%20know%20more%20details." target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>+91-90231-30944</a> &nbsp;| 🕒 11:00 AM – 8:00 PM (Sunday Closed)</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '1rem' }}>
-          <a href="https://maps.app.goo.gl/kPp2ZNTVFte1LHt66" target="_blank" rel="noopener noreferrer"><img src="/gmaps-icon.png" alt="G-Maps" width="30" height="30" /></a>
+          <a href="https://maps.app.goo.gl/kPp2ZNTVFte1LHt66" target="_blank" rel="noopener noreferrer"><Image src="/gmaps-icon.png" alt="G-Maps" width="30" height="30" /></a>
           <a href="https://www.facebook.com/rawatgemsjewellers" target="_blank" rel="noopener noreferrer"><img src="/facebook-icon.png" alt="Facebook" width="30" height="30" /></a>
           <a href="https://www.instagram.com/rawatgemsjewellers/" target="_blank" rel="noopener noreferrer"><img src="/instagram-icon.png" alt="Instagram" width="30" height="30" /></a>
         </div>

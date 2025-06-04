@@ -295,12 +295,14 @@
 
 .catalogGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.1rem;
-  padding: 0.1rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
 }
 
 .catalogCard {
+  transform: scale(0.8); /* 👈 shrink entire card */
+  transform-origin: top left;
+  width: 100%; /* ensure full width within scaled card */
   background: white;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -318,7 +320,6 @@
   border-radius: 8px;
   width: 100%;
   height: auto;
-  object-fit: cover;
 }
 
 .catalogMain {
@@ -336,13 +337,13 @@
 .catalogPrice {
   font-weight: bold;
   font-family: Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: normal;
 }
 
 .catalogCode {
-  font-style: italic;
   color: #555;
+  font-size: 0.7rem;
 }
 
 /* ===============================
@@ -473,6 +474,34 @@
   .rightSection {
     margin-top: 0.5rem;
   }
+
+  .catalogGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* smaller cards */
+    gap: 0.3rem; /* tighter gap */
+    padding: 0.2rem 0;
+  }
+
+  .catalogCard {
+    transform: scale(0.75); /* even more compact on mobile */
+    transform-origin: top center;
+  }
+
+  .catalogPrice {
+    font-size: 0.75rem;
+  }
+
+  .catalogCode {
+    font-size: 0.65rem;
+  }
+
+  .productLabel {
+    font-size: 0.75rem;
+  }
+
+  .catalogSection {
+    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
+  }
+
 }
 
 @media (max-width: 480px) {
